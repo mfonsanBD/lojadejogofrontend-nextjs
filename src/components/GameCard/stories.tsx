@@ -5,7 +5,8 @@ export default {
   title: 'GameCard',
   component: GameCard,
   argTypes: {
-    onFav: { action: 'clicked' }
+    onFav: { action: 'clicked' },
+    ribbon: { type: 'string' }
   },
   args: {
     img: 'https://source.unsplash.com/user/willianjusten/300x140',
@@ -23,8 +24,20 @@ export const Default: Story<GameCardProps> = (args) => (
 )
 
 Default.parameters = {
-  layout: 'fullscreen',
-  backgrounds: {
-    default: 'dark'
-  }
+  layout: 'fullscreen'
+}
+
+export const WithRibbon: Story<GameCardProps> = (args) => (
+  <div style={{ maxWidth: '30rem' }}>
+    <GameCard {...args} />
+  </div>
+)
+
+WithRibbon.args = {
+  ribbon: '20% off',
+  ribbonSize: 'small',
+  ribbonColor: 'primary'
+}
+WithRibbon.parameters = {
+  layout: 'fullscreen'
 }
