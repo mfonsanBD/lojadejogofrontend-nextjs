@@ -47,9 +47,9 @@ export const Wrapper = styled.div<wrapperProps>`
     top: ${theme.spacings.xsmall};
     display: flex;
     align-items: center;
-
     color: ${theme.colors.white};
     font-weight: ${theme.font.bold};
+    z-index: ${theme.layers.base};
 
     &::before {
       content: '';
