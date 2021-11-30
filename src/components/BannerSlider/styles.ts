@@ -43,7 +43,7 @@ export const Wrapper = styled.section`
 
       .slick-dots {
         position: absolute;
-        right: -5rem;
+        right: 0;
         flex-direction: column;
         height: 100%;
         top: 0;
