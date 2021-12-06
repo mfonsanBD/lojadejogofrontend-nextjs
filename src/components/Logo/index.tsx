@@ -4,9 +4,11 @@ export type LogoProps = {
   color?: 'white' | 'black'
   size?: 'normal' | 'large'
   hideOnMobile?: boolean
+  id?: string
 }
 
 const Logo = ({
+  id = 'logo',
   color = 'white',
   size = 'normal',
   hideOnMobile = false
@@ -21,7 +23,7 @@ const Logo = ({
     >
       <path
         d="m.0547602 15.2273-.0354753 20.645C.0110436 40.6683 5.35471 43.5351 9.34604 40.8758L29.9416 27.1541l20.5483 13.7925c3.9822 2.6729 9.3356-.1755 9.3439-4.9715l.0343-19.9972c.0136-7.88161-7.5487-13.56538-15.1158-11.36093l-.8732.2544c-9.6 2.79669-19.8112 2.70243-29.358-.27101C7.35072 2.36704.0676653 7.71714.0547602 15.2273Z"
-        fill="url(#a)"
+        fill={`url(#paint_linear_${id})`}
       />
 
       <path
@@ -80,7 +82,7 @@ const Logo = ({
 
       <defs>
         <linearGradient
-          id="a"
+          id={`paint_linear_${id}`}
           x1="29.1592"
           y1="-7.39708"
           x2="30.1547"
