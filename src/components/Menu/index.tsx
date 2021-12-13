@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Link from 'next/link'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-line/Menu2'
 import { Search as SearchIcon } from '@styled-icons/remix-line/Search'
 import { ShoppingCart as CartIcon } from '@styled-icons/material-outlined/ShoppingCart'
@@ -43,7 +44,9 @@ const Menu = ({ username }: MenuProps) => {
         </S.IconWrapper>
         {!username && (
           <MediaMatch greaterThan="medium">
-            <Button>Entrar</Button>
+            <Link href="/sign-in" passHref>
+              <Button as="a">Sign In</Button>
+            </Link>
           </MediaMatch>
         )}
       </S.MenuGroup>
@@ -65,13 +68,15 @@ const Menu = ({ username }: MenuProps) => {
 
         {!username && (
           <S.RegisterBox>
-            <Button fullWidth size="large">
-              Acessar Agora
-            </Button>
+            <Link href="/sign-in" passHref>
+              <Button fullWidth size="large" as="a">
+                Sign In
+              </Button>
+            </Link>
             <span>ou</span>
-            <S.CreateAccount href="#" title="Crie sua conta">
-              Cadastre-se
-            </S.CreateAccount>
+            <Link href="/sign-up" passHref>
+              <S.CreateAccount title="Crie sua conta">Sign Up</S.CreateAccount>
+            </Link>
           </S.RegisterBox>
         )}
       </S.MenuFull>

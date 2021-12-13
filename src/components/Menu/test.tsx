@@ -31,17 +31,18 @@ describe('<Menu />', () => {
   it('should show register box when logged out', () => {
     renderWithTheme(<Menu />)
 
-    expect(screen.getByText(/Cadastre-se/i)).toBeInTheDocument()
-    expect(screen.getByText(/Acessar Agora/i)).toBeInTheDocument()
+    expect(screen.getByText(/sign up/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/sign in/i)).toHaveLength(2)
     expect(screen.queryByText(/Favoritos/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/Minha Conta/i)).not.toBeInTheDocument()
   })
 
   it('should show favoritos e minha conta when logged in', () => {
     renderWithTheme(<Menu username="mike" />)
-    expect(screen.getByText(/Favoritos/i)).toBeInTheDocument()
-    expect(screen.getByText(/Minha Conta/i)).toBeInTheDocument()
-    expect(screen.queryByText(/Cadastre-se/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/Acessar Agora/i)).not.toBeInTheDocument()
+
+    expect(screen.getAllByText(/Minha Conta/i)).toHaveLength(1)
+    expect(screen.getAllByText(/Favoritos/i)).toHaveLength(1)
+    expect(screen.queryByText(/Sign Up/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Sign In/i)).not.toBeInTheDocument()
   })
 })
