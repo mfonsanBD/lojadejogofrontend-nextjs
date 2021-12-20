@@ -4,7 +4,7 @@ export default [
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x140',
+    img: 'https://source.unsplash.com/user/willianjusten/301x141',
     price: 'R$235',
     promotionalPrice: 'R$215'
   },
@@ -13,7 +13,7 @@ export default [
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x141',
+    img: 'https://source.unsplash.com/user/willianjusten/315x144',
     price: 'R$235',
     promotionalPrice: 'R$215'
   },
@@ -22,7 +22,7 @@ export default [
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x142',
+    img: 'https://source.unsplash.com/user/willianjusten/305x142',
     price: 'R$235',
     promotionalPrice: 'R$215'
   },
@@ -31,7 +31,7 @@ export default [
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x143',
+    img: 'https://source.unsplash.com/user/willianjusten/310x150',
     price: 'R$235',
     promotionalPrice: 'R$215'
   },
@@ -40,7 +40,7 @@ export default [
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x144',
+    img: 'https://source.unsplash.com/user/willianjusten/300x148',
     price: 'R$235',
     promotionalPrice: 'R$215'
   },

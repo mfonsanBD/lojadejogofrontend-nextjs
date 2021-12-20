@@ -7,6 +7,7 @@ const props: GameDetailsProps = {
   developer: 'Different Tales',
   releaseDate: '2021-12-16T09:16:00',
   platforms: ['windows', 'mac', 'linux'],
+  publisher: 'CD Projekt Red',
   rating: 'BR0',
   genres: ['Role-playing', 'Narrative']
 }
@@ -47,6 +48,16 @@ describe('<GameDetails />', () => {
     renderWithTheme(<GameDetails {...props} />)
 
     expect(screen.getByText('Dec 16, 2021')).toBeInTheDocument()
+  })
+
+  it('should render developer', () => {
+    renderWithTheme(<GameDetails {...props} />)
+    expect(screen.getByText(/Different Tales/i)).toBeInTheDocument()
+  })
+
+  it('should render publisher', () => {
+    renderWithTheme(<GameDetails {...props} />)
+    expect(screen.getByText(/CD Projekt Red/i)).toBeInTheDocument()
   })
 
   it('should render free rating when BR0', () => {

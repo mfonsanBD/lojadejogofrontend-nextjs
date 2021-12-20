@@ -10,6 +10,7 @@ export type GameDetailsProps = {
   developer: string
   releaseDate: string
   platforms: Platform[]
+  publisher: string
   rating: Rating
   genres: string[]
 }
@@ -18,6 +19,7 @@ const GameDetails = ({
   developer,
   releaseDate,
   platforms,
+  publisher,
   rating,
   genres
 }: GameDetailsProps) => {
@@ -62,7 +64,7 @@ const GameDetails = ({
 
         <S.Block>
           <S.Label>Publishers</S.Label>
-          <S.Description>2K</S.Description>
+          <S.Description>{publisher}</S.Description>
         </S.Block>
 
         <S.Block>
