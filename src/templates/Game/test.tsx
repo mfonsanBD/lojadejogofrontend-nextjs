@@ -8,7 +8,6 @@ import gameInfoMock from 'components/GameInfo/mock'
 import highlightMock from 'components/Highlight/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import gameDetailsMock from 'components/GameDetails/mock'
-import textContentMock from 'components/TextContent/mock'
 
 import Game, { GameTemplateProps } from '.'
 
@@ -16,7 +15,7 @@ const props: GameTemplateProps = {
   cover: 'bg-image.jpg',
   gameInfo: gameInfoMock,
   gallery: galleryMock,
-  description: textContentMock.content,
+  description: `<h1>Custom HTML</h1>`,
   gameDetails: gameDetailsMock as GameDetailsProps,
   upComingHighlight: highlightMock,
   upComingGames: gamesMock,
@@ -73,5 +72,53 @@ describe('<Game />', () => {
     expect(screen.getByTestId('Mock GameDetails')).toBeInTheDocument()
     expect(screen.getByTestId('Mock GameInfo')).toBeInTheDocument()
     expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(2)
+    expect(screen.getByText(/custom html/i)).toBeInTheDocument()
+  })
+
+  it('should not render the gallery if no images', () => {
+    renderWithTheme(<Game {...props} gallery={undefined} />)
+
+    expect(screen.queryByTestId('Mock Gallery')).not.toBeInTheDocument()
+  })
+
+  it('should not render the gallery on mobile', () => {
+    renderWithTheme(<Game {...props} />)
+
+    expect(screen.getByTestId('Mock Gallery').parentElement).toHaveStyle({
+      display: 'none'
+    })
+
+    expect(screen.getByTestId('Mock Gallery').parentElement).toHaveStyleRule(
+      'display',
+      'block',
+      {
+        media: '(min-width: 768px)'
+      }
+    )
+  })
+
+  it('should render the cover image', () => {
+    renderWithTheme(<Game {...props} />)
+
+    const cover = screen.getByRole('image', {
+      name: /cover/i
+    })
+
+    expect(cover).toHaveStyle({
+      backgroundImage: 'url(bg-image.jpg)',
+      height: '39.5rem'
+    })
+
+    expect(cover).toHaveStyleRule('height', '70rem', {
+      media: '(min-width: 768px)'
+    })
+
+    expect(cover).toHaveStyleRule(
+      'clip-path',
+      'polygon(0 0,100% 0,100% 100%,0 85%)',
+      {
+        media: '(min-width: 768px)'
+      }
+    )
   })
 })
