@@ -9,6 +9,7 @@ import Gallery, { GalleryImageProps } from 'components/Gallery'
 import GameDetails, { GameDetailsProps } from 'components/GameDetails'
 
 import * as S from './styles'
+import { Divider } from 'components/Divider'
 
 export type GameTemplateProps = {
   cover: string
@@ -48,6 +49,7 @@ const Game = ({
 
       <S.SectionGameDetails>
         <GameDetails {...gameDetails} />
+        <Divider />
       </S.SectionGameDetails>
 
       <S.SectionUpcoming>
