@@ -75,4 +75,15 @@ describe('<Button />', () => {
       '/link'
     )
   })
+
+  it('should render a disabled button', () => {
+    renderWithTheme(<Button disabled>Buy Now</Button>)
+    expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyleRule(
+      'cursor',
+      'not-allowed',
+      {
+        modifier: ':disabled'
+      }
+    )
+  })
 })

@@ -37,6 +37,13 @@ const wrapperModifiers = {
     }
   `,
 
+  disabled: () => css`
+    &:disabled {
+      cursor: not-allowed;
+      filter: saturate(30%);
+    }
+  `,
+
   withIcon: (theme: DefaultTheme) => css`
     svg {
       width: 1.5rem;
@@ -49,7 +56,7 @@ const wrapperModifiers = {
 }
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, size, fullWidth, minimal, hasIcon }) => css`
+  ${({ theme, size, fullWidth, minimal, hasIcon, disabled }) => css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -73,5 +80,6 @@ export const Wrapper = styled.button<WrapperProps>`
     ${!!hasIcon && wrapperModifiers.withIcon(theme)}
     ${!!minimal && wrapperModifiers.minimal(theme)}
     ${!!fullWidth && wrapperModifiers.fullWidth()}
+    ${disabled && wrapperModifiers.disabled()}
   `}
 `
