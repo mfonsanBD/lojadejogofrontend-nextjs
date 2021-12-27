@@ -8,7 +8,7 @@ describe('<Menu />', () => {
     renderWithTheme(<Menu />)
     expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/search/i)).toBeInTheDocument()
-    expect(screen.getByLabelText(/open shopping cart/i)).toBeInTheDocument()
+    expect(screen.getAllByLabelText(/shopping cart/i)).toHaveLength(2)
   })
 
   it('should handle the open/close mobile menu', () => {
@@ -33,15 +33,15 @@ describe('<Menu />', () => {
 
     expect(screen.getByText(/sign up/i)).toBeInTheDocument()
     expect(screen.getAllByText(/sign in/i)).toHaveLength(2)
-    expect(screen.queryByText(/Favoritos/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/Minha Conta/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/wishlist/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/my account/i)).not.toBeInTheDocument()
   })
 
   it('should show favoritos e minha conta when logged in', () => {
     renderWithTheme(<Menu username="mike" />)
 
-    expect(screen.getAllByText(/Minha Conta/i)).toHaveLength(1)
-    expect(screen.getAllByText(/Favoritos/i)).toHaveLength(1)
+    expect(screen.getAllByText(/my account/i)).toHaveLength(2)
+    expect(screen.getAllByText(/wishlist/i)).toHaveLength(2)
     expect(screen.queryByText(/Sign Up/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/Sign In/i)).not.toBeInTheDocument()
   })
