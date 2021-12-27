@@ -22,3 +22,9 @@ export const Default: Story<CartDropdownProps> = (args) => (
     <CartDropdown {...args} />
   </div>
 )
+
+export const IsEmpty: Story<CartDropdownProps> = () => (
+  <div style={{ float: 'right' }}>
+    <CartDropdown />
+  </div>
+)
