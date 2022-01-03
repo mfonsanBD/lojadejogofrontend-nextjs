@@ -22,6 +22,11 @@
     "types:generate": "yarn schema:download && yarn schema:convert && yarn codegen",
     "prepare": "husky install"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "src/**/*": [
       "yarn lint --fix",
