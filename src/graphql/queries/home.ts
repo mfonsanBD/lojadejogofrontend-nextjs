@@ -18,6 +18,16 @@ export const QUERY_HOME = gql`
     ) {
       ...GamesFragment
     }
+    upcomingGames: games(
+      sort: "release_date:ASC"
+      limit: 6
+      where: { release_date_gt: "2022-01-04" }
+    ) {
+      ...GamesFragment
+    }
+    freeGames: games(sort: "release_date:ASC", limit: 6, where: { price: 0 }) {
+      ...GamesFragment
+    }
   }
 
   ${BannerFragments}

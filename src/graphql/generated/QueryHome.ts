@@ -191,8 +191,48 @@ export interface QueryHome_newGames {
   cover: QueryHome_newGames_cover | null;
 }
 
+export interface QueryHome_upcomingGames_developers {
+  __typename: "Developer";
+  name: string;
+}
+
+export interface QueryHome_upcomingGames_cover {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface QueryHome_upcomingGames {
+  __typename: "Game";
+  name: string;
+  slug: string;
+  developers: QueryHome_upcomingGames_developers[];
+  price: number;
+  cover: QueryHome_upcomingGames_cover | null;
+}
+
+export interface QueryHome_freeGames_developers {
+  __typename: "Developer";
+  name: string;
+}
+
+export interface QueryHome_freeGames_cover {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface QueryHome_freeGames {
+  __typename: "Game";
+  name: string;
+  slug: string;
+  developers: QueryHome_freeGames_developers[];
+  price: number;
+  cover: QueryHome_freeGames_cover | null;
+}
+
 export interface QueryHome {
   banners: QueryHome_banners[];
   sections: QueryHome_sections | null;
   newGames: QueryHome_newGames[];
+  upcomingGames: QueryHome_upcomingGames[];
+  freeGames: QueryHome_freeGames[];
 }
