@@ -10,6 +10,7 @@ import Button from 'components/Button'
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import * as S from './styles'
 import FormatPrice from 'utils/formatPrice'
+import FormatImageUrl from 'utils/formatImageUrl'
 
 export type GameCardProps = {
   img: string
@@ -47,7 +48,7 @@ const GameCard = ({
 
     <Link href={`game/${slug}`} passHref>
       <S.ImageBox>
-        <img src={img} alt={title} />
+        <img src={FormatImageUrl(img)} alt={title} />
       </S.ImageBox>
     </Link>
 

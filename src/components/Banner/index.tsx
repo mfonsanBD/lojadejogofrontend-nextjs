@@ -1,5 +1,6 @@
 import Button from 'components/Button'
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
+import FormatImageUrl from 'utils/formatImageUrl'
 import * as S from './styles'
 
 export type BannerProps = {
@@ -30,7 +31,7 @@ const Banner = ({
       </Ribbon>
     )}
 
-    <S.Image src={img} role="img" aria-label={title} />
+    <S.Image src={FormatImageUrl(img)} role="img" aria-label={title} />
 
     <S.Caption>
       <S.Title>{title}</S.Title>

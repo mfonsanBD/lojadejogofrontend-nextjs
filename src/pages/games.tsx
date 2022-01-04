@@ -26,7 +26,7 @@ export async function getStaticProps() {
         title: game.name,
         slug: game.slug,
         developer: game.developers[0].name,
-        img: `http://localhost:1337${game.cover!.url}`,
+        img: game.cover!.url,
         price: game.price
       })),
       filterItems: filtersMock
