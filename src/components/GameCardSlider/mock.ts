@@ -5,8 +5,8 @@ export default [
     slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/301x141',
-    price: 'R$235',
-    promotionalPrice: 'R$215'
+    price: 235,
+    promotionalPrice: 215
   },
   {
     id: '2',
@@ -14,8 +14,8 @@ export default [
     slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/315x144',
-    price: 'R$235',
-    promotionalPrice: 'R$215'
+    price: 235,
+    promotionalPrice: 215
   },
   {
     id: '3',
@@ -23,8 +23,8 @@ export default [
     slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/305x142',
-    price: 'R$235',
-    promotionalPrice: 'R$215'
+    price: 235,
+    promotionalPrice: 215
   },
   {
     id: '4',
@@ -32,8 +32,8 @@ export default [
     slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/310x150',
-    price: 'R$235',
-    promotionalPrice: 'R$215'
+    price: 235,
+    promotionalPrice: 215
   },
   {
     id: '5',
@@ -41,8 +41,8 @@ export default [
     slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x148',
-    price: 'R$235',
-    promotionalPrice: 'R$215'
+    price: 235,
+    promotionalPrice: 215
   },
   {
     id: '6',
@@ -50,7 +50,7 @@ export default [
     slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x145',
-    price: 'R$235',
-    promotionalPrice: 'R$215'
+    price: 235,
+    promotionalPrice: 215
   }
 ]
