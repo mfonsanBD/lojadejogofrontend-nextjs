@@ -17,7 +17,11 @@ const props = {
   upComingGames: gamesMock,
   upComingMoreGames: gamesMock,
   freeHighlight: highlightMock,
-  freeGames: gamesMock
+  freeGames: gamesMock,
+  newGamesTitle: 'New Games',
+  mostPopularTitle: 'Most Popular',
+  upcomingTitle: 'Upcoming',
+  freeGamesTitle: 'Free Games'
 }
 
 jest.mock('components/Showcase', () => {
@@ -43,6 +47,6 @@ describe('<Home />', () => {
     renderWithTheme(<Home {...props} />)
 
     expect(screen.getByTestId('Mock Banner Slider')).toBeInTheDocument()
-    expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(5)
+    expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(4)
   })
 })
