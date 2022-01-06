@@ -236,3 +236,7 @@ export interface QueryHome {
   upcomingGames: QueryHome_upcomingGames[];
   freeGames: QueryHome_freeGames[];
 }
+
+export interface QueryHomeVariables {
+  date: any;
+}

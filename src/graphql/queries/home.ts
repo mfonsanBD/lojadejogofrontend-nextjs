@@ -4,7 +4,7 @@ import { GamesFragment } from 'graphql/fragments/game'
 import { HomeFragment } from 'graphql/fragments/home'
 
 export const QUERY_HOME = gql`
-  query QueryHome {
+  query QueryHome($date: Date!) {
     banners(sort: "id:ASC") {
       ...BannerFragments
     }
@@ -14,14 +14,14 @@ export const QUERY_HOME = gql`
     newGames: games(
       sort: "release_date:DESC"
       limit: 6
-      where: { release_date_lte: "2022-01-04" }
+      where: { release_date_lte: $date }
     ) {
       ...GamesFragment
     }
     upcomingGames: games(
       sort: "release_date:ASC"
       limit: 6
-      where: { release_date_gt: "2022-01-04" }
+      where: { release_date_gt: $date }
     ) {
       ...GamesFragment
     }
