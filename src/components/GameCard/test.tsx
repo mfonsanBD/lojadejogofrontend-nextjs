@@ -9,7 +9,7 @@ const props = {
   title: 'Population Zero',
   slug: 'population-zero',
   developer: 'Rockstar Games',
-  img: 'https://source.unsplash.com/user/willianjusten/300x140'
+  img: 'http://localhost:1337https://source.unsplash.com/user/willianjusten/300x140'
 }
 
 describe('<GameCard />', () => {
