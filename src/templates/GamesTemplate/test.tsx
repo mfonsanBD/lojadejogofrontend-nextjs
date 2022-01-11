@@ -2,9 +2,8 @@ import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 import { MockedProvider } from '@apollo/client/testing'
 
-import filtersMock from 'components/ExploreSidebar/mock'
-
 import { fetchMoreMock, gamesMock } from './mocks'
+import filtersMock from 'components/ExploreSidebar/mock'
 
 import GamesTemplate from '.'
 import userEvent from '@testing-library/user-event'
@@ -62,7 +61,9 @@ describe('<GamesTemplate />', () => {
       </MockedProvider>
     )
     expect(await screen.findByText(/Sample Game/i)).toBeInTheDocument()
+
     userEvent.click(await screen.findByRole('button', { name: /show more/i }))
+
     expect(await screen.findByText(/Fetch More Game/i)).toBeInTheDocument()
   })
 })
