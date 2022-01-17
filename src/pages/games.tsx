@@ -1,6 +1,7 @@
 import GamesTemplate, { GamesTemplateProps } from 'templates/GamesTemplate'
 
 import { initializeApollo } from 'utils/apollo'
+import { parseQueryStringToWhere } from 'utils/filter/index'
 
 import { QUERY_GAMES } from 'graphql/queries/games'
 import { QueryGames, QueryGamesVariables } from 'graphql/generated/QueryGames'
@@ -11,12 +12,13 @@ import {
   priceFields,
   sortFields
 } from 'utils/filter/fields'
+import { GetServerSidePropsContext } from 'next'
 
 export default function Index(props: GamesTemplateProps) {
   return <GamesTemplate {...props} />
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps({ query }: GetServerSidePropsContext) {
   const apolloClient = initializeApollo()
 
   const filterPrice = {
@@ -56,12 +58,15 @@ export async function getStaticProps() {
 
   await apolloClient.query<QueryGames, QueryGamesVariables>({
     query: QUERY_GAMES,
-    variables: { limit: 15 }
+    variables: {
+      limit: 15,
+      where: parseQueryStringToWhere({ queryString: query, filterItems }),
+      sort: query.sort as string | null
+    }
   })
 
   return {
     props: {
-      revalidade: 60,
       initialApolloState: apolloClient.cache.extract(),
       filterItems
     }

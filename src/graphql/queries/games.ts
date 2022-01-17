@@ -8,6 +8,11 @@ export const QUERY_GAMES = gql`
     games(limit: $limit, start: $start, where: $where, sort: $sort) {
       ...GamesFragment
     }
+    gamesConnection(where: $where) {
+      values {
+        id
+      }
+    }
   }
 
   ${GamesFragment}
