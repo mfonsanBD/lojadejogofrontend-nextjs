@@ -9,7 +9,7 @@ const props = {
   title: 'Population Zero',
   slug: 'population-zero',
   developer: 'Rockstar Games',
-  img: 'http://localhost:1337https://source.unsplash.com/user/willianjusten/300x140'
+  img: '/uploads/inscryption_c196d66de2.jpg'
 }
 
 describe('<GameCard />', () => {
@@ -26,7 +26,7 @@ describe('<GameCard />', () => {
 
     expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
       'src',
-      props.img
+      `http://localhost:1337${props.img}`
     )
 
     expect(screen.getByRole('link', { name: props.title })).toHaveAttribute(

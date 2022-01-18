@@ -4,7 +4,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import Banner from '.'
 
 const props = {
-  img: 'https://source.unsplash.com/user/willianjusten/1042x580',
+  img: '/uploads/cyberpunk_2077_e33ac329c6.jpg',
   title: 'Defy death',
   subtitle: '<p>Play the new <strong>CrashLands</strong> season</p>',
   buttonLabel: 'Buy now',

@@ -69,6 +69,7 @@ export interface HomeFragment_popularGamesSection_games_cover {
 
 export interface HomeFragment_popularGamesSection_games {
   __typename: "Game";
+  id: string;
   name: string;
   slug: string;
   developers: HomeFragment_popularGamesSection_games_developers[];
