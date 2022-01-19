@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 import { HighlightProps } from '.'
 
-type ImageProps = Pick<HighlightProps, 'img' | 'alignment'>
+type ImageProps = Pick<HighlightProps, 'background' | 'alignment'>
 
 const wrapperModifiers = {
   right: () => css`
@@ -29,11 +29,11 @@ const wrapperModifiers = {
 }
 
 export const Wrapper = styled.section<ImageProps>`
-  ${({ img, alignment }) => css`
+  ${({ background, alignment }) => css`
     position: relative;
     height: 23rem;
     display: grid;
-    background-image: url(${img});
+    background-image: url(${background});
     background-position: center center;
     background-size: cover;
 

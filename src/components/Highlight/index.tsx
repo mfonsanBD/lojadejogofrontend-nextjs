@@ -4,34 +4,36 @@ import * as S from './styles'
 export type HighlightAlignment = 'right' | 'left'
 
 export type HighlightProps = {
-  img: string
+  background: string
   title: string
   subtitle: string
   buttonLabel: string
   buttonLink: string
-  floatImage?: string
+  float_image?: string
   alignment?: HighlightAlignment
 }
 
 const Highlight = ({
-  img,
+  background,
   title,
   subtitle,
   buttonLabel,
   buttonLink,
-  floatImage,
+  float_image,
   alignment = 'right'
-}: HighlightProps) => (
-  <S.Wrapper img={img} alignment={alignment}>
-    {!!floatImage && <S.FloatImage src={floatImage} alt={title} />}
-    <S.Content>
-      <S.Title>{title}</S.Title>
-      <S.Subtitle>{subtitle}</S.Subtitle>
-      <Button as="a" href={buttonLink}>
-        {buttonLabel}
-      </Button>
-    </S.Content>
-  </S.Wrapper>
-)
+}: HighlightProps) => {
+  return (
+    <S.Wrapper background={background} alignment={alignment}>
+      {!!float_image && <S.FloatImage src={float_image} alt={title} />}
+      <S.Content>
+        <S.Title>{title}</S.Title>
+        <S.Subtitle>{subtitle}</S.Subtitle>
+        <Button as="a" href={buttonLink}>
+          {buttonLabel}
+        </Button>
+      </S.Content>
+    </S.Wrapper>
+  )
+}
 
 export default Highlight

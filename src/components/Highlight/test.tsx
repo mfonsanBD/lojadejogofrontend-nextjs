@@ -5,7 +5,7 @@ import Highlight from '.'
 import * as S from './styles'
 
 const props = {
-  img: '/img/red-dead-img.jpg',
+  background: '/img/red-dead-img.jpg',
   title: 'heading 1',
   subtitle: 'heading 2',
   buttonLabel: 'buy now',
@@ -31,12 +31,12 @@ describe('<Highlight />', () => {
     const { container } = renderWithTheme(<Highlight {...props} />)
 
     expect(container.firstChild).toHaveStyle({
-      backgroundImage: `url(${props.img})`
+      backgroundImage: `url(${props.background})`
     })
   })
 
   it('should render float image', () => {
-    renderWithTheme(<Highlight {...props} floatImage="/red-dead-float.png" />)
+    renderWithTheme(<Highlight {...props} float_image="/red-dead-float.png" />)
 
     expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
       'src',
