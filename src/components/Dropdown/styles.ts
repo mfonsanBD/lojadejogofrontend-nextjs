@@ -19,20 +19,6 @@ const wrapperModifiers = {
   `
 }
 
-export const Wrapper = styled.div<WrapperProps>`
-  ${({ theme, isOpen }) => css`
-    position: relative;
-    width: max-content;
-
-    ${Content},
-    ${Overlay} {
-      transition: transform 0.2s, opacity ${theme.transition.default};
-      ${isOpen && wrapperModifiers.open()}
-      ${!isOpen && wrapperModifiers.close()}
-    }
-  `}
-`
-
 export const Title = styled.div`
   ${({ theme }) => css`
     cursor: pointer;
@@ -71,12 +57,26 @@ export const Content = styled.div`
 
 export const Overlay = styled.div`
   ${({ theme }) => css`
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: ${theme.layers.overlay};
+  `}
+`
+
+export const Wrapper = styled.div<WrapperProps>`
+  ${({ theme, isOpen }) => css`
+    position: relative;
+    width: max-content;
+
+    ${Content},
+    ${Overlay} {
+      transition: transform 0.2s, opacity ${theme.transition.default};
+      ${isOpen && wrapperModifiers.open()}
+      ${!isOpen && wrapperModifiers.close()}
+    }
   `}
 `
