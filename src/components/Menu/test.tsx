@@ -1,18 +1,17 @@
-import { fireEvent, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen, fireEvent } from 'utils/test-utils'
 
 import Menu from '.'
 
 describe('<Menu />', () => {
   it('should render the menu', () => {
-    renderWithTheme(<Menu />)
+    render(<Menu />)
     expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/search/i)).toBeInTheDocument()
     expect(screen.getAllByLabelText(/shopping cart/i)).toHaveLength(2)
   })
 
   it('should handle the open/close mobile menu', () => {
-    renderWithTheme(<Menu />)
+    render(<Menu />)
     //selecionar o menufull
     const fullMenuElement = screen.getByRole('navigation', { hidden: true })
     //verificar se o menu está escondido
@@ -29,7 +28,7 @@ describe('<Menu />', () => {
   })
 
   it('should show register box when logged out', () => {
-    renderWithTheme(<Menu />)
+    render(<Menu />)
 
     expect(screen.getByText(/sign up/i)).toBeInTheDocument()
     expect(screen.getAllByText(/sign in/i)).toHaveLength(2)
@@ -38,7 +37,7 @@ describe('<Menu />', () => {
   })
 
   it('should show favoritos e minha conta when logged in', () => {
-    renderWithTheme(<Menu username="mike" />)
+    render(<Menu username="mike" />)
 
     expect(screen.getAllByText(/my account/i)).toHaveLength(2)
     expect(screen.getAllByText(/wishlist/i)).toHaveLength(2)

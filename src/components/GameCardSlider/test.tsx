@@ -1,5 +1,5 @@
 import 'match-media-mock'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
 
 import GameCardSlider from '.'
 
@@ -44,7 +44,7 @@ const items = [
 
 describe('<GameCardSlider />', () => {
   it('should render with 4 active items', () => {
-    const { container } = renderWithTheme(<GameCardSlider items={items} />)
+    const { container } = render(<GameCardSlider items={items} />)
     expect(container.querySelectorAll('.slick-active')).toHaveLength(4)
   })
 })

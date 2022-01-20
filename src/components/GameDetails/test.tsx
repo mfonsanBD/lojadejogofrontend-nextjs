@@ -1,5 +1,4 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/test-utils'
 
 import GameDetails, { GameDetailsProps } from '.'
 
@@ -14,7 +13,7 @@ const props: GameDetailsProps = {
 
 describe('<GameDetails />', () => {
   it('should render the blocks', () => {
-    renderWithTheme(<GameDetails {...props} />)
+    render(<GameDetails {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /developer/i })
@@ -37,7 +36,7 @@ describe('<GameDetails />', () => {
   })
 
   it('should render platform icons', () => {
-    renderWithTheme(<GameDetails {...props} />)
+    render(<GameDetails {...props} />)
 
     expect(screen.getByRole('img', { name: /mac/i }))
     expect(screen.getByRole('img', { name: /linux/i }))
@@ -45,33 +44,33 @@ describe('<GameDetails />', () => {
   })
 
   it('should render release date formated', () => {
-    renderWithTheme(<GameDetails {...props} />)
+    render(<GameDetails {...props} />)
 
     expect(screen.getByText('Dec 16, 2021')).toBeInTheDocument()
   })
 
   it('should render developer', () => {
-    renderWithTheme(<GameDetails {...props} />)
+    render(<GameDetails {...props} />)
     expect(screen.getByText(/Different Tales/i)).toBeInTheDocument()
   })
 
   it('should render publisher', () => {
-    renderWithTheme(<GameDetails {...props} />)
+    render(<GameDetails {...props} />)
     expect(screen.getByText(/CD Projekt Red/i)).toBeInTheDocument()
   })
 
   it('should render free rating when BR0', () => {
-    renderWithTheme(<GameDetails {...props} />)
+    render(<GameDetails {...props} />)
     expect(screen.getByText(/free/i)).toBeInTheDocument()
   })
 
   it('should render 18+ rating when BR18', () => {
-    renderWithTheme(<GameDetails {...props} rating="BR18" />)
+    render(<GameDetails {...props} rating="BR18" />)
     expect(screen.getByText(/18\+/i)).toBeInTheDocument()
   })
 
   it('should render a list of genres', () => {
-    renderWithTheme(<GameDetails {...props} rating="BR18" />)
+    render(<GameDetails {...props} rating="BR18" />)
     expect(screen.getByText('Role-playing / Narrative')).toBeInTheDocument()
   })
 })

@@ -1,12 +1,11 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/test-utils'
 import gameItemMock from './mock'
 
 import GameItem from '.'
 
 describe('<GameItem />', () => {
   it('should render the item', () => {
-    renderWithTheme(<GameItem {...gameItemMock} />)
+    render(<GameItem {...gameItemMock} />)
 
     expect(
       screen.getByRole('heading', { name: gameItemMock.title })
@@ -22,7 +21,7 @@ describe('<GameItem />', () => {
   it('should render the item with download link', () => {
     const downloadLink = 'https://google.com'
 
-    renderWithTheme(<GameItem {...gameItemMock} downloadLink={downloadLink} />)
+    render(<GameItem {...gameItemMock} downloadLink={downloadLink} />)
 
     expect(
       screen.getByRole('link', { name: `Get ${gameItemMock.title} here` })
@@ -37,7 +36,7 @@ describe('<GameItem />', () => {
       purchaseDate: 'Purchase made on 07/20/2020 at 20:32'
     }
 
-    renderWithTheme(<GameItem {...gameItemMock} paymentInfo={paymentInfo} />)
+    render(<GameItem {...gameItemMock} paymentInfo={paymentInfo} />)
 
     expect(screen.getByRole('img', { name: paymentInfo.flag })).toHaveAttribute(
       'src',
