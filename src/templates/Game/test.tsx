@@ -1,12 +1,11 @@
 import { render, screen } from 'utils/test-utils'
 
-import { GameDetailsProps } from 'components/GameDetails'
-
 import galleryMock from 'components/Gallery/mock'
 import gameInfoMock from 'components/GameInfo/mock'
 import highlightMock from 'components/Highlight/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import gameDetailsMock from 'components/GameDetails/mock'
+import { GameDetailsProps } from 'components/GameDetails'
 
 import Game, { GameTemplateProps } from '.'
 
@@ -15,10 +14,12 @@ const props: GameTemplateProps = {
   gameInfo: gameInfoMock,
   gallery: galleryMock,
   description: `<h1>Custom HTML</h1>`,
-  gameDetails: gameDetailsMock as GameDetailsProps,
-  upComingHighlight: highlightMock,
-  upComingGames: gamesMock,
-  upComingMoreGames: gamesMock
+  details: gameDetailsMock as GameDetailsProps,
+  upcomingTitle: 'Upcoming games',
+  upcomingGames: gamesMock,
+  upcomingHighlight: highlightMock,
+  recommendedTitle: 'You may like these games',
+  recommendedGames: gamesMock
 }
 
 jest.mock('templates/Base', () => ({

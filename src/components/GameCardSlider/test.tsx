@@ -10,8 +10,8 @@ const items = [
     slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x140',
-    price: 'R$235',
-    promotionalPrice: 'R$215'
+    price: 235,
+    promotionalPrice: 215
   },
   {
     id: '2',
@@ -19,8 +19,8 @@ const items = [
     slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x141',
-    price: 'R$235',
-    promotionalPrice: 'R$215'
+    price: 235,
+    promotionalPrice: 215
   },
   {
     id: '3',
@@ -28,8 +28,8 @@ const items = [
     slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x142',
-    price: 'R$235',
-    promotionalPrice: 'R$215'
+    price: 235,
+    promotionalPrice: 215
   },
   {
     id: '4',
@@ -37,8 +37,8 @@ const items = [
     slug: 'population-zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x143',
-    price: 'R$235',
-    promotionalPrice: 'R$215'
+    price: 235,
+    promotionalPrice: 215
   }
 ]
 

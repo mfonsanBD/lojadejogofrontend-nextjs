@@ -26,10 +26,10 @@ export const WithFloatImage: Story<HighlightProps> = (args) => (
   </div>
 )
 WithFloatImage.args = {
-  img: '/img/red-dead-img.jpg',
+  background: '/img/red-dead-img.jpg',
   title: 'Read Dead it’s back',
   subtitle: 'Come see John’s new adventures',
   buttonLabel: 'Buy now',
   buttonLink: '/buy',
-  floatImage: '/img/red-dead-float.png'
+  float_image: '/img/red-dead-float.png'
 }
