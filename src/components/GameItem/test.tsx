@@ -2,6 +2,8 @@ import { render, screen } from 'utils/test-utils'
 import gameItemMock from './mock'
 
 import GameItem from '.'
+import { CartContextDefaultValues } from 'hooks/use-cart'
+import userEvent from '@testing-library/user-event'
 
 describe('<GameItem />', () => {
   it('should render the item', () => {
@@ -16,6 +18,22 @@ describe('<GameItem />', () => {
     ).toHaveAttribute('src', gameItemMock.img)
 
     expect(screen.getByText('R$ 215,00')).toBeInTheDocument()
+  })
+
+  it('should render remove if the items is inside the cart and call remove', () => {
+    const cartProviderProps = {
+      ...CartContextDefaultValues,
+      isInCart: () => true,
+      removeFromCart: jest.fn()
+    }
+
+    render(<GameItem {...gameItemMock} />, { cartProviderProps })
+
+    const removeLink = screen.getByText(/remove/i)
+    expect(removeLink).toBeInTheDocument()
+
+    userEvent.click(removeLink)
+    expect(cartProviderProps.removeFromCart).toHaveBeenCalledWith('1')
   })
 
   it('should render the item with download link', () => {
