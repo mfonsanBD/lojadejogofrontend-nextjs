@@ -1,14 +1,11 @@
 import Base from 'templates/Base'
 
-import Empty from 'components/Empty'
 import Heading from 'components/Heading'
 import Showcase from 'components/Showcase'
 import { Divider } from 'components/Divider'
 import { Container } from 'components/Container'
 import { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
-import CartList, { CartListProps } from 'components/CartList'
-import PaymentOptions, { PaymentOptionsProps } from 'components/PaymentOptions'
 
 import { Info } from '@styled-icons/material-outlined/Info'
 
@@ -17,37 +14,18 @@ import * as S from './styles'
 export type CartTemplateProps = {
   recommendedHighlight: HighlightProps
   recommendedGames: GameCardProps[]
-} & CartListProps &
-  Pick<PaymentOptionsProps, 'cards'>
+}
 
 const Cart = ({
   recommendedGames,
-  recommendedHighlight,
-  items,
-  total,
-  cards
+  recommendedHighlight
 }: CartTemplateProps) => {
-  const handlePayment = () => ({})
-
   return (
     <Base>
       <Container>
         <Heading lineLeft lineColor="secondary">
           My Cart
         </Heading>
-
-        {items?.length ? (
-          <S.Content>
-            <CartList items={items} total={total} />
-            <PaymentOptions cards={cards} handlePayment={handlePayment} />
-          </S.Content>
-        ) : (
-          <Empty
-            title="Your cart is empty"
-            description="Go back to the store and explore great games and offers"
-            hasLink
-          />
-        )}
 
         <S.Text>
           <Info size={18} /> Your purchase is protected by a secure connection

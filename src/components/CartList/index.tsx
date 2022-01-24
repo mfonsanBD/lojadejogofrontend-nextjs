@@ -1,11 +1,12 @@
 import Link from 'next/link'
+import { useCart } from 'hooks/use-cart'
+
+import Empty from 'components/Empty'
 import Button from 'components/Button'
+import Loader from 'components/Loader'
 import GameItem from 'components/GameItem'
 
 import * as S from './styles'
-import Empty from 'components/Empty'
-import { useCart } from 'hooks/use-cart'
-import Loader from 'components/Loader'
 
 export type CartListProps = {
   hasButton?: boolean

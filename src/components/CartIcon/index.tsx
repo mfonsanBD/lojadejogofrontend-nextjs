@@ -1,5 +1,5 @@
-import { ShoppingCart } from '@styled-icons/material-outlined/ShoppingCart'
 import { useCart } from 'hooks/use-cart'
+import { ShoppingCart } from '@styled-icons/material-outlined/ShoppingCart'
 
 import * as S from './styles'
 

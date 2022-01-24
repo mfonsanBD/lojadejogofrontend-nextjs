@@ -1,18 +1,13 @@
 import { render, screen } from 'utils/test-utils'
 
-import itemsMock from 'components/CartList/mock'
 import highlightMock from 'components/Highlight/mock'
 import gamesMock from 'components/GameCardSlider/mock'
-import cardsMock from 'components/PaymentOptions/mock'
 
 import Cart from '.'
 
 const props = {
   recommendedHighlight: highlightMock,
-  recommendedGames: gamesMock.slice(0, 5),
-  items: itemsMock,
-  total: 'R$ 430,00',
-  cards: cardsMock
+  recommendedGames: gamesMock.slice(0, 5)
 }
 
 jest.mock('templates/Base', () => ({
@@ -26,20 +21,6 @@ jest.mock('components/Showcase', () => ({
   __esModule: true,
   default: function Mock() {
     return <div data-testid="Mock Showcase" />
-  }
-}))
-
-jest.mock('components/CartList', () => ({
-  __esModule: true,
-  default: function Mock() {
-    return <div data-testid="Mock Cart" />
-  }
-}))
-
-jest.mock('components/PaymentOptions', () => ({
-  __esModule: true,
-  default: function Mock() {
-    return <div data-testid="Mock PaymentOptions" />
   }
 }))
 
@@ -58,13 +39,6 @@ describe('<Cart />', () => {
       screen.getByRole('heading', { name: /my cart/i })
     ).toBeInTheDocument()
     expect(screen.getByTestId('Mock Showcase')).toBeInTheDocument()
-    expect(screen.getByTestId('Mock Cart')).toBeInTheDocument()
-    expect(screen.getByTestId('Mock PaymentOptions')).toBeInTheDocument()
     expect(screen.queryByTestId('Mock Empty')).not.toBeInTheDocument()
-  })
-
-  it('should render empty section if there are no items', () => {
-    render(<Cart {...props} items={[]} />)
-    expect(screen.getByTestId('Mock Empty')).toBeInTheDocument()
   })
 })
