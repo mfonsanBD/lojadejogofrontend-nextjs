@@ -1,4 +1,4 @@
-import Button from 'components/Button'
+import Button, { ButtonProps } from 'components/Button'
 import {
   AddShoppingCart,
   RemoveShoppingCart
@@ -7,10 +7,17 @@ import { useCart } from 'hooks/use-cart'
 
 type CartButtonProps = {
   id: string
-}
+  hasText?: boolean
+} & Pick<ButtonProps, 'size'>
 
-const CartButton = ({ id }: CartButtonProps) => {
+const CartButton = ({
+  id,
+  size = 'small',
+  hasText = false
+}: CartButtonProps) => {
   const { isInCart, addToCart, removeFromCart } = useCart()
+  const buttonText = isInCart(id) ? 'Remove from Cart' : 'Add to Cart'
+
   return (
     <Button
       icon={
@@ -20,9 +27,11 @@ const CartButton = ({ id }: CartButtonProps) => {
           <AddShoppingCart aria-label="Add to Cart" />
         )
       }
-      size="small"
+      size={size}
       onClick={() => (isInCart(id) ? removeFromCart(id) : addToCart(id))}
-    />
+    >
+      {hasText && buttonText}
+    </Button>
   )
 }
 

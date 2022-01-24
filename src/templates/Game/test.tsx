@@ -14,10 +14,10 @@ const props: GameTemplateProps = {
   gameInfo: gameInfoMock,
   gallery: galleryMock,
   description: `<h1>Custom HTML</h1>`,
-  details: gameDetailsMock as GameDetailsProps,
-  upcomingTitle: 'Upcoming games',
-  upcomingGames: gamesMock,
-  upcomingHighlight: highlightMock,
+  gameDetails: gameDetailsMock as GameDetailsProps,
+  upComingTitle: 'Upcoming games',
+  upComingGames: gamesMock,
+  upComingHighlight: highlightMock,
   recommendedTitle: 'You may like these games',
   recommendedGames: gamesMock
 }

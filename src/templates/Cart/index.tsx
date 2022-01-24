@@ -2,10 +2,12 @@ import Base from 'templates/Base'
 
 import Heading from 'components/Heading'
 import Showcase from 'components/Showcase'
+import CartList, { CartListProps } from 'components/CartList'
 import { Divider } from 'components/Divider'
 import { Container } from 'components/Container'
 import { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
+import PaymentOptions, { PaymentOptionsProps } from 'components/PaymentOptions'
 
 import { Info } from '@styled-icons/material-outlined/Info'
 
@@ -14,18 +16,27 @@ import * as S from './styles'
 export type CartTemplateProps = {
   recommendedHighlight: HighlightProps
   recommendedGames: GameCardProps[]
-}
+} & CartListProps &
+  Pick<PaymentOptionsProps, 'cards'>
 
 const Cart = ({
   recommendedGames,
-  recommendedHighlight
+  recommendedHighlight,
+  cards
 }: CartTemplateProps) => {
+  const handlePayment = () => ({})
+
   return (
     <Base>
       <Container>
         <Heading lineLeft lineColor="secondary">
           My Cart
         </Heading>
+
+        <S.Content>
+          <CartList />
+          <PaymentOptions cards={cards} handlePayment={handlePayment} />
+        </S.Content>
 
         <S.Text>
           <Info size={18} /> Your purchase is protected by a secure connection
