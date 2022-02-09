@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { signOut } from 'next-auth/client'
 import {
   AccountCircle,
   CreditCard,
@@ -32,12 +33,10 @@ const ProfileMenu = ({ activeLink }: ProfileMenuProps) => (
         <span>My Orders</span>
       </S.Link>
     </Link>
-    <Link href="/profile/logout" passHref>
-      <S.Link title="sign out">
-        <ExitToApp size={24} />
-        <span>Sign Out</span>
-      </S.Link>
-    </Link>
+    <S.Link role="button" onClick={() => signOut()} title="sign out">
+      <ExitToApp size={24} />
+      <span>Sign Out</span>
+    </S.Link>
   </S.Nav>
 )
 

@@ -12,7 +12,7 @@ describe('<ProfileMenu />', () => {
     ).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /my cards/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /my orders/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /sign out/i })).toBeInTheDocument()
+    expect(screen.getByText(/sign out/i)).toBeInTheDocument()
   })
 
   it('should render the menu with an active link defined', () => {

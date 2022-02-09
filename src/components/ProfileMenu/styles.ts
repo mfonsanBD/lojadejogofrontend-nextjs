@@ -35,6 +35,7 @@ type ActiveProps = {
 
 export const Link = styled.a<ActiveProps>`
   ${({ theme, isActive }) => css`
+    cursor: pointer;
     text-decoration: none;
     display: flex;
     align-items: center;
