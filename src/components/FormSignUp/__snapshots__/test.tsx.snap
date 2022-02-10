@@ -101,6 +101,10 @@ exports[`<FormSignUp /> should render the form 1`] = `
   margin: 1.6rem auto;
 }
 
+.c0 form {
+  margin-top: 2.4rem;
+}
+
 .c8 {
   font-size: 1.4rem;
   color: #030517;
@@ -196,7 +200,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
           class="c5"
           name="email"
           placeholder="E-mail"
-          type="email"
+          type="text"
           value=""
         />
       </div>
@@ -278,7 +282,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
         </div>
         <input
           class="c5"
-          name="confirm-password"
+          name="confirm_password"
           placeholder="Confirm Password"
           type="password"
           value=""

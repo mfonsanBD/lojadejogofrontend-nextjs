@@ -47,6 +47,19 @@ describe('validation', () => {
       )
     })
 
+    it('should return short password error', () => {
+      const values = {
+        username: '',
+        email: '',
+        password: '123',
+        confirm_password: '321'
+      }
+
+      expect(signInValidate(values).password).toMatchInlineSnapshot(
+        `"\\"password\\" length must be at least 8 characters long"`
+      )
+    })
+
     it('should return error if passwords doesnt match', () => {
       const values = {
         username: '',

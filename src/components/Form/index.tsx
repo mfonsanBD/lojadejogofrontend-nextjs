@@ -12,6 +12,10 @@ export const FormWrapper = styled.div`
     ${ButtonStyles.Wrapper} {
       margin: ${theme.spacings.xsmall} auto;
     }
+
+    form {
+      margin-top: ${theme.spacings.small};
+    }
   `}
 `
 
@@ -20,6 +24,16 @@ export const FormLoading = styled.img.attrs(() => ({
   alt: 'Waiting...'
 }))`
   width: 4rem;
+`
+
+export const FormError = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    text-align: center;
+    padding: ${theme.spacings.xxsmall};
+    color: #dc3545;
+    background-color: #f8d7da;
+  `}
 `
 
 export const FormLink = styled.div`

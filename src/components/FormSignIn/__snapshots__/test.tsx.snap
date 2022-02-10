@@ -107,6 +107,10 @@ exports[`<FormSignIn /> should render the form 1`] = `
   margin: 1.6rem auto;
 }
 
+.c0 form {
+  margin-top: 2.4rem;
+}
+
 .c9 {
   font-size: 1.4rem;
   color: #030517;

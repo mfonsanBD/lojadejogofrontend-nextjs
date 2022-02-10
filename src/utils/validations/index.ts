@@ -8,7 +8,7 @@ const fieldsValidations = {
       tlds: { allow: false }
     })
     .required(),
-  password: Joi.string().required(),
+  password: Joi.string().min(8).required(),
   confirm_password: Joi.string()
     .valid(Joi.ref('password'))
     .required()
