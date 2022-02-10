@@ -36,12 +36,19 @@ describe('<Menu />', () => {
     expect(screen.queryByText(/my account/i)).not.toBeInTheDocument()
   })
 
-  it('should show favoritos e minha conta when logged in', () => {
+  it('should show wishlist e my profile when logged in', () => {
     render(<Menu username="mike" />)
 
     expect(screen.getAllByText(/my account/i)).toHaveLength(2)
     expect(screen.getAllByText(/wishlist/i)).toHaveLength(2)
     expect(screen.queryByText(/Sign Up/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Sign In/i)).not.toBeInTheDocument()
+  })
+
+  it('should not show sign in or dropdownUser if loading', () => {
+    render(<Menu username="mike" loading />)
+
+    expect(screen.queryByText(/my account/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/Sign In/i)).not.toBeInTheDocument()
   })
 })
