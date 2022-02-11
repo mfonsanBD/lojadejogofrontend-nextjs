@@ -1,20 +1,18 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
-import { Email, Lock, ErrorOutline } from '@styled-icons/material-outlined'
+import { Email, ErrorOutline } from '@styled-icons/material-outlined'
 
 import Button from 'components/Button'
 import TextField from 'components/TextField'
-import { FormWrapper, FormLink, FormLoading, FormError } from 'components/Form'
+import { FormWrapper, FormLoading, FormError } from 'components/Form'
 
-import * as S from './styles'
 import { signIn } from 'next-auth/client'
-import { FieldErrors, signInValidate } from 'utils/validations'
+import { FieldErrors } from 'utils/validations'
 
-const FormSignIn = () => {
+const FormForgotPassword = () => {
   const [formError, setFormError] = useState('')
   const [fieldError, setFieldError] = useState<FieldErrors>({})
-  const [values, setValues] = useState({ email: '', password: '' })
+  const [values, setValues] = useState({ email: '' })
   const [loading, setLoading] = useState(false)
   const routes = useRouter()
   const { push, query } = routes
@@ -27,7 +25,7 @@ const FormSignIn = () => {
     event.preventDefault()
     setLoading(true)
 
-    const errors = signInValidate(values)
+    const errors = {} //validate after
 
     if (Object.keys(errors).length) {
       setFieldError(errors)
@@ -67,32 +65,13 @@ const FormSignIn = () => {
           icon={<Email />}
           error={fieldError?.email}
         />
-        <TextField
-          name="password"
-          placeholder="Password"
-          type="password"
-          onInputChange={(v) => handleInput('password', v!)}
-          icon={<Lock />}
-          error={fieldError?.password}
-        />
-
-        <Link href="/forgot-password" passHref>
-          <S.ForgotPassword href="#">Forgot your password?</S.ForgotPassword>
-        </Link>
 
         <Button type="submit" size="large" fullWidth disabled={loading}>
-          {loading ? <FormLoading /> : <span>Sign In Now</span>}
+          {loading ? <FormLoading /> : <span>Send E-mail</span>}
         </Button>
-
-        <FormLink>
-          Dont have an account?{' '}
-          <Link href="/sign-up">
-            <a>Sign Up</a>
-          </Link>
-        </FormLink>
       </form>
     </FormWrapper>
   )
 }
 
-export default FormSignIn
+export default FormForgotPassword
