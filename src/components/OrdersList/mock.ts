@@ -1,5 +1,6 @@
 export default [
   {
+    id: '1',
     title: 'game',
     downloadLink: 'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
     img: 'https://source.unsplash.com/user/willianjusten/151x70',
@@ -12,6 +13,7 @@ export default [
     }
   },
   {
+    id: '2',
     title: 'game',
     downloadLink: 'https://wongames.com/game/download/kjhejl867asd76DEh',
     img: 'https://source.unsplash.com/user/willianjusten/151x70',
