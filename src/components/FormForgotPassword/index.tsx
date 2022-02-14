@@ -80,7 +80,7 @@ const FormForgotPassword = () => {
           <form onSubmit={handleSubmit}>
             <TextField
               name="email"
-              placeholder="E-mail"
+              placeholder="Email"
               type="text"
               initialValue={query.email as string}
               onInputChange={(v) => handleInput('email', v!)}
@@ -89,7 +89,7 @@ const FormForgotPassword = () => {
             />
 
             <Button type="submit" size="large" fullWidth disabled={loading}>
-              {loading ? <FormLoading /> : <span>Send E-mail</span>}
+              {loading ? <FormLoading /> : <span>Send Email</span>}
             </Button>
           </form>
         </>
