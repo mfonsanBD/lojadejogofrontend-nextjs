@@ -1,19 +1,20 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+
 import {
   CheckCircleOutline,
   Email,
   ErrorOutline
 } from '@styled-icons/material-outlined'
 
-import Button from 'components/Button'
-import TextField from 'components/TextField'
 import {
   FormWrapper,
   FormLoading,
   FormError,
   FormSuccess
 } from 'components/Form'
+import Button from 'components/Button'
+import TextField from 'components/TextField'
 
 import { FieldErrors, forgotValidate } from 'utils/validations'
 
@@ -43,6 +44,7 @@ const FormForgotPassword = () => {
 
     setFieldError({})
 
+    // enviar um post para /forgot-password pedindo um email
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/auth/forgot-password`,
       {
@@ -68,13 +70,14 @@ const FormForgotPassword = () => {
     <FormWrapper>
       {success ? (
         <FormSuccess>
-          <CheckCircleOutline /> You just received an email!
+          <CheckCircleOutline />
+          You just received an email!
         </FormSuccess>
       ) : (
         <>
           {!!formError && (
             <FormError>
-              <ErrorOutline size={20} /> {formError}
+              <ErrorOutline /> {formError}
             </FormError>
           )}
           <form onSubmit={handleSubmit}>
@@ -82,14 +85,14 @@ const FormForgotPassword = () => {
               name="email"
               placeholder="Email"
               type="text"
+              error={fieldError?.email}
               initialValue={query.email as string}
               onInputChange={(v) => handleInput('email', v!)}
               icon={<Email />}
-              error={fieldError?.email}
             />
 
             <Button type="submit" size="large" fullWidth disabled={loading}>
-              {loading ? <FormLoading /> : <span>Send Email</span>}
+              {loading ? <FormLoading /> : <span>Send email</span>}
             </Button>
           </form>
         </>
