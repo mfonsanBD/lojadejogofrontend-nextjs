@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import { Lock, ErrorOutline } from 'styled-icons/material-outlined'
+import { Lock, ErrorOutline } from '@styled-icons/material-outlined'
 
 import Button from 'components/Button'
 import TextField from 'components/TextField'

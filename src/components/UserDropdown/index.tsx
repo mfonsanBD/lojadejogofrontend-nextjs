@@ -6,7 +6,7 @@ import {
   AccountCircle,
   FavoriteBorder,
   ExitToApp
-} from 'styled-icons/material-outlined'
+} from '@styled-icons/material-outlined'
 import { ChevronDown } from '@styled-icons/boxicons-regular/ChevronDown'
 
 import * as S from './styles'

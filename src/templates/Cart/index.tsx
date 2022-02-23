@@ -1,3 +1,5 @@
+import { loadStripe } from '@stripe/stripe-js'
+import { Elements } from '@stripe/react-stripe-js'
 import Base from 'templates/Base'
 
 import Heading from 'components/Heading'
@@ -7,25 +9,28 @@ import { Divider } from 'components/Divider'
 import { Container } from 'components/Container'
 import { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
-import PaymentOptions, { PaymentOptionsProps } from 'components/PaymentOptions'
+import PaymentForm from 'components/PaymentForm'
+import { Session } from 'next-auth'
 
 import { Info } from '@styled-icons/material-outlined/Info'
 
 import * as S from './styles'
 
 export type CartTemplateProps = {
+  session: Session
+  recommendedTitle: string
   recommendedHighlight: HighlightProps
   recommendedGames: GameCardProps[]
-} & CartListProps &
-  Pick<PaymentOptionsProps, 'cards'>
+} & CartListProps
+
+const stripe = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY}`)
 
 const Cart = ({
+  session,
+  recommendedTitle,
   recommendedGames,
-  recommendedHighlight,
-  cards
+  recommendedHighlight
 }: CartTemplateProps) => {
-  const handlePayment = () => ({})
-
   return (
     <Base>
       <Container>
@@ -35,7 +40,10 @@ const Cart = ({
 
         <S.Content>
           <CartList />
-          <PaymentOptions cards={cards} handlePayment={handlePayment} />
+
+          <Elements stripe={stripe}>
+            <PaymentForm session={session} />
+          </Elements>
         </S.Content>
 
         <S.Text>
@@ -46,11 +54,12 @@ const Cart = ({
           additional cost, as long as the download of the purchased game has not
           occurred after your purchase.
         </S.Text>
+
         <Divider />
       </Container>
 
       <Showcase
-        title="You may like these games"
+        title={recommendedTitle}
         highlight={recommendedHighlight}
         games={recommendedGames}
       />

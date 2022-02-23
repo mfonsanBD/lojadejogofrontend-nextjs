@@ -15,7 +15,7 @@ import {
   Lock,
   AccountCircle,
   ErrorOutline
-} from 'styled-icons/material-outlined'
+} from '@styled-icons/material-outlined'
 
 import { FieldErrors, signUpValidate } from 'utils/validations'
 

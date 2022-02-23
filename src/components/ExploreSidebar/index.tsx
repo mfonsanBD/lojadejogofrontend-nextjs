@@ -7,7 +7,7 @@ import Heading from 'components/Heading'
 import Checkbox from 'components/Checkbox'
 
 import * as S from './styles'
-import { Close, FilterList } from 'styled-icons/material-outlined'
+import { Close, FilterList } from '@styled-icons/material-outlined'
 import xor from 'lodash.xor'
 
 type Field = {
