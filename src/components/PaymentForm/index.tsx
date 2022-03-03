@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
-import { StripeCardElementChangeEvent } from '@stripe/stripe-js'
+import { PaymentIntent, StripeCardElementChangeEvent } from '@stripe/stripe-js'
 import Button from 'components/Button'
 import { FormLoading } from 'components/Form'
 import Heading from 'components/Heading'
@@ -8,7 +8,7 @@ import { useCart } from 'hooks/use-cart'
 import { Session } from 'next-auth'
 import React, { useState, useEffect } from 'react'
 import { ShoppingCart, ErrorOutline } from '@styled-icons/material-outlined'
-import { createPaymentIntent } from 'utils/stripe/methods'
+import { createPayment, createPaymentIntent } from 'utils/stripe/methods'
 import * as S from './styles'
 import { useRouter } from 'next/router'
 
@@ -66,6 +66,16 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     setError(event.error ? event.error.message : '')
   }
 
+  const saveOrder = async (paymentIntent?: PaymentIntent) => {
+    const data = await createPayment({
+      items,
+      paymentIntent,
+      token: session.jwt as string
+    })
+
+    return data
+  }
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setLoading(true)
@@ -73,6 +83,10 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     // se for gratuito
     if (freeGames) {
       // salva no banco e redireciona para a success
+      // faz chamada a API /orders
+      saveOrder()
+
+      // envia os items do carrinho
       push('/success')
       return
     }
@@ -93,6 +107,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
       console.log('Yeeeei! Compra realizada.')
 
       //salvar a compra no banco de dados
+      saveOrder(payload.paymentIntent)
       // redirecionar para a página de sucesso
       push('/success')
     }
