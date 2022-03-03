@@ -10,6 +10,7 @@ import React, { useState, useEffect } from 'react'
 import { ShoppingCart, ErrorOutline } from '@styled-icons/material-outlined'
 import { createPaymentIntent } from 'utils/stripe/methods'
 import * as S from './styles'
+import { useRouter } from 'next/router'
 
 type PaymentFormProps = {
   session: Session
@@ -17,6 +18,7 @@ type PaymentFormProps = {
 
 const PaymentForm = ({ session }: PaymentFormProps) => {
   const { items } = useCart()
+  const { push } = useRouter()
   const stripe = useStripe()
   const elements = useElements()
 
@@ -69,7 +71,11 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     setLoading(true)
 
     // se for gratuito
-    // salva no banco e redireciona para a success
+    if (freeGames) {
+      // salva no banco e redireciona para a success
+      push('/success')
+      return
+    }
 
     const payload = await stripe!.confirmCardPayment(clientSecret, {
       payment_method: {
@@ -88,6 +94,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
       //salvar a compra no banco de dados
       // redirecionar para a página de sucesso
+      push('/success')
     }
   }
 
