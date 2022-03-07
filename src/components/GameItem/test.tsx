@@ -48,9 +48,9 @@ describe('<GameItem />', () => {
 
   it('should render the payment info', () => {
     const paymentInfo = {
-      cardNumber: '**** **** **** 4326',
+      number: '**** **** **** 4326',
       flag: 'mastercard',
-      image: '/img/cards/mastercard.png',
+      img: '/img/cards/mastercard.png',
       purchaseDate: 'Purchase made on 07/20/2020 at 20:32'
     }
 
@@ -58,9 +58,22 @@ describe('<GameItem />', () => {
 
     expect(screen.getByRole('img', { name: paymentInfo.flag })).toHaveAttribute(
       'src',
-      paymentInfo.image
+      paymentInfo.img
     )
-    expect(screen.getByText(paymentInfo.cardNumber)).toBeInTheDocument()
+    expect(screen.getByText(paymentInfo.number)).toBeInTheDocument()
     expect(screen.getByText(paymentInfo.purchaseDate)).toBeInTheDocument()
+  })
+
+  it('should render free game when theres no paymentInfo', () => {
+    const paymentInfo = {
+      number: 'Free Game',
+      flag: null,
+      img: null,
+      purchaseDate: 'Purchase made on 07/20/2020 at 20:32'
+    }
+
+    render(<GameItem {...gameItemMock} paymentInfo={paymentInfo} />)
+
+    expect(screen.getByText(/free game/i)).toBeInTheDocument()
   })
 })

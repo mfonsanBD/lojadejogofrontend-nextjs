@@ -22,28 +22,28 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
   const apolloClient = initializeApollo()
 
   const filterPrice = {
-    title: 'Price',
+    title: 'Preço',
     name: 'price_lte',
     type: 'radio',
     fields: priceFields
   }
 
   const filterPlatforms = {
-    title: 'Platforms',
+    title: 'Sistema',
     name: 'platforms',
     type: 'checkbox',
     fields: platformFields
   }
 
   const filterSort = {
-    title: 'Sort by price',
+    title: 'Ordenar por',
     name: 'sort',
     type: 'radio',
     fields: sortFields
   }
 
   const filterCategories = {
-    title: 'Genres',
+    title: 'Gêneros',
     name: 'categories',
     type: 'checkbox',
     fields: genreFields

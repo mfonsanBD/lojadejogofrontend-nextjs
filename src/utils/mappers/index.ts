@@ -6,6 +6,7 @@ import { QueryGames_games } from 'graphql/generated/QueryGames'
 import FormatImageUrl from 'utils/formatImageUrl'
 import FormatPrice from 'utils/formatPrice'
 import { QueryWishlist_wishlists_games } from 'graphql/generated/QueryWishlist'
+import { QueryOrders_orders } from 'graphql/generated/QueryOrders'
 
 export const BannerMapper = (banners: QueryHome_banners[]) => {
   return banners.map((banner) => ({
@@ -61,5 +62,35 @@ export const cartMapper = (games: QueryGames_games[] | undefined) => {
         title: game.name,
         price: FormatPrice(game.price)
       }))
+    : []
+}
+
+export const OrdersMapper = (orders: QueryOrders_orders[]) => {
+  return orders
+    ? orders.map((order) => {
+        return {
+          id: order.id,
+          paymentInfo: {
+            flag: order.card_brand,
+            img: order.card_brand ? `/img/cards/${order.card_brand}.png` : null,
+            number: order.card_last4
+              ? `**** **** **** ${order.card_last4}`
+              : 'Free Game',
+            purchaseDate: `Purchase made on ${new Intl.DateTimeFormat('en-US', {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric'
+            }).format(new Date(order.created_at))}`
+          },
+          games: order.games.map((game) => ({
+            id: game.id,
+            title: game.name,
+            downloadLink:
+              'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
+            img: FormatImageUrl(game.cover!.url),
+            price: game.price ? FormatPrice(game.price) : 'Free'
+          }))
+        }
+      })
     : []
 }

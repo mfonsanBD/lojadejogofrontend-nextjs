@@ -1,28 +1,40 @@
 export default [
   {
     id: '1',
-    title: 'game',
-    downloadLink: 'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
-    img: 'https://source.unsplash.com/user/willianjusten/151x70',
-    price: '$10.00',
     paymentInfo: {
       flag: 'visa',
-      image: '/img/cards/visa.png',
-      cardNumber: '**** **** **** 4242',
-      purchaseDate: 'Purchase made on Apr 14, 2021'
-    }
+      img: '/img/cards/visa.png',
+      number: '**** **** **** 4242',
+      purchaseDate: 'Purchase made on Mar 3, 2022'
+    },
+    games: [
+      {
+        id: '1',
+        title: 'game',
+        downloadLink:
+          'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
+        img: 'http://localhost:1337/image.jpg',
+        price: '$10.00'
+      }
+    ]
   },
   {
     id: '2',
-    title: 'game',
-    downloadLink: 'https://wongames.com/game/download/kjhejl867asd76DEh',
-    img: 'https://source.unsplash.com/user/willianjusten/151x70',
-    price: '$10.00',
     paymentInfo: {
-      flag: 'visa',
-      image: '/img/cards/mastercard.png',
-      cardNumber: '**** **** **** 4444',
-      purchaseDate: 'Purchase made on Apr 14, 2021'
-    }
+      flag: 'mastercard',
+      img: '/img/cards/mastercard.png',
+      number: '**** **** **** 4444',
+      purchaseDate: 'Purchase made on Mar 3, 2022'
+    },
+    games: [
+      {
+        id: '2',
+        title: 'game',
+        downloadLink:
+          'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
+        img: 'http://localhost:1337/image.jpg',
+        price: '$10.00'
+      }
+    ]
   }
 ]

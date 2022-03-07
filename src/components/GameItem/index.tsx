@@ -4,9 +4,9 @@ import * as S from './styles'
 import { useCart } from 'hooks/use-cart'
 
 export type PaymentInfoProps = {
-  cardNumber: string
-  flag: string
-  image: string
+  number: string
+  flag: string | null
+  img: string | null
   purchaseDate: string
 }
 
@@ -62,8 +62,10 @@ const GameItem = ({
         <S.PaymentContent>
           <p>{paymentInfo.purchaseDate}</p>
           <S.CardInfo>
-            <span>{paymentInfo.cardNumber}</span>
-            <img src={paymentInfo.image} alt={paymentInfo.flag} />
+            <span>{paymentInfo.number}</span>
+            {!!paymentInfo.img && !!paymentInfo.flag && (
+              <img src={paymentInfo.img} alt={paymentInfo.flag} />
+            )}
           </S.CardInfo>
         </S.PaymentContent>
       )}
