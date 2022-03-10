@@ -1,12 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
+import Image from 'next/image'
 
-import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
-import * as S from './styles'
-import FormatPrice from 'utils/formatPrice'
-import FormatImageUrl from 'utils/formatImageUrl'
 import CartButton from 'components/CartButton'
 import WishlistButton from 'components/WishlistButton'
+import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
+
+import FormatPrice from 'utils/formatPrice'
+import FormatImageUrl from 'utils/formatImageUrl'
+
+import * as S from './styles'
 
 export type GameCardProps = {
   id: string
@@ -43,7 +46,12 @@ const GameCard = ({
 
     <Link href={`/game/${slug}`} passHref>
       <S.ImageBox>
-        <img src={FormatImageUrl(img)} alt={title} />
+        <Image
+          src={FormatImageUrl(img)}
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+        />
       </S.ImageBox>
     </Link>
 

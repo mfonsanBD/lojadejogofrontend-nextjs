@@ -8,6 +8,7 @@ import SlickSlider from 'react-slick'
 import Slider, { SliderSettings } from 'components/Slider'
 
 import * as S from './styles'
+import Image from 'next/image'
 
 const commonSettings: SliderSettings = {
   arrows: true,
@@ -80,8 +81,7 @@ const Gallery = ({ items }: GalleryProps) => {
     <S.Wrapper>
       <Slider ref={slider} settings={settings}>
         {items.map((item, index) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             role="button"
             key={`thumb-${index}`}
             src={item.src}
@@ -90,6 +90,9 @@ const Gallery = ({ items }: GalleryProps) => {
               setIsOpen(true)
               slider.current!.slickGoTo(index, true)
             }}
+            width={295}
+            height={165}
+            objectFit="cover"
           />
         ))}
       </Slider>
@@ -108,8 +111,14 @@ const Gallery = ({ items }: GalleryProps) => {
         <S.Content>
           <Slider ref={slider} settings={modalSettings}>
             {items.map((item, index) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img key={`gallery-${index}`} src={item.src} alt={item.label} />
+              <Image
+                width={1200}
+                height={675}
+                key={`gallery-${index}`}
+                src={item.src}
+                alt={item.label}
+                objectFit="cover"
+              />
             ))}
           </Slider>
         </S.Content>

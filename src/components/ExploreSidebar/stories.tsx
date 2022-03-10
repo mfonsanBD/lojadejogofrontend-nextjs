@@ -7,7 +7,8 @@ export default {
   title: 'ExploreSidebar',
   component: ExploreSidebar,
   args: {
-    items: mock
+    items: mock,
+    onFilter: () => console.log('filter')
   },
   parameters: {
     backgrounds: {

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Base from 'templates/Base'
 
 import Showcase from 'components/Showcase'
@@ -37,7 +38,9 @@ const Game = ({
   recommendedGames
 }: GameTemplateProps) => (
   <Base>
-    <S.Cover src={cover} role="image" aria-label="cover" />
+    <S.CoverWrapper>
+      <Image src={cover} alt={gameInfo.title} layout="fill" objectFit="cover" />
+    </S.CoverWrapper>
     <S.Main>
       <S.SectionGameInfo>
         <GameInfo {...gameInfo} />
