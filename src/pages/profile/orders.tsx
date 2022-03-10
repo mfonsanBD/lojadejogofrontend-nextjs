@@ -10,10 +10,12 @@ import {
 } from 'graphql/generated/QueryOrders'
 import { QUERY_ORDERS } from 'graphql/queries/orders'
 import { OrdersMapper } from 'utils/mappers'
+import { NextSeo } from 'next-seo'
 
 export default function Orders({ items }: OrdersListProps) {
   return (
     <Profile>
+      <NextSeo title="My Orders - Won Games" />
       <OrdersList items={items} />
     </Profile>
   )

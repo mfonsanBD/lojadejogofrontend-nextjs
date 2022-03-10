@@ -11,6 +11,7 @@ import { HighlightProps } from 'components/Highlight'
 import * as S from './styles'
 import { useCart } from 'hooks/use-cart'
 import { useEffect } from 'react'
+import { NextSeo } from 'next-seo'
 
 export type SuccessTemplateProps = {
   recommendedTitle: string
@@ -31,6 +32,7 @@ const Success = ({
 
   return (
     <Base>
+      <NextSeo title="Success - Won Games" />
       <Container>
         <S.Wrapper>
           <S.Heading>Your purchase was successful!</S.Heading>

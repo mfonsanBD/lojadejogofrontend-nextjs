@@ -14,6 +14,7 @@ import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined'
 import { useQueryGames } from 'graphql/queries/games'
 import { parseQueryStringToWhere, parseQueryStringToFilter } from 'utils/filter'
 import { getImageUrl } from 'utils/formatImageUrl'
+import { NextSeo } from 'next-seo'
 
 export type GamesTemplateProps = {
   filterItems: ItemProps[]
@@ -53,6 +54,16 @@ const GamesTemplate = ({ filterItems = [] }: GamesTemplateProps) => {
 
   return (
     <Base>
+      <NextSeo
+        title="Games - Won Games"
+        description="Search your favorite game here."
+        canonical={`https://won-games-self.vercel.app/games`}
+        openGraph={{
+          url: `https://won-games-self.vercel.app/games`,
+          title: 'Games - Won Games',
+          description: 'Search your favorite game here'
+        }}
+      />
       <S.Main>
         <ExploreSidebar
           initialValues={parseQueryStringToFilter({

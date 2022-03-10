@@ -8,6 +8,7 @@ import { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
 
 import * as S from './styles'
+import { NextSeo } from 'next-seo'
 
 export type HomeTemplateProps = {
   banners: BannerProps[]
@@ -39,6 +40,17 @@ const Home = ({
   freeGamesTitle
 }: HomeTemplateProps) => (
   <Base>
+    <NextSeo
+      title="Home - Won Games"
+      description="All your favorite games in one place. WON is the best and most complete gaming platform."
+      canonical={`https://won-games-self.vercel.app`}
+      openGraph={{
+        url: `https://won-games-self.vercel.app`,
+        title: 'Home - Won Games',
+        description:
+          'All your favorite games in one place. WON is the best and most complete gaming platform.'
+      }}
+    />
     <Container>
       <S.SectionBanner>
         <BannerSlider items={banners} />

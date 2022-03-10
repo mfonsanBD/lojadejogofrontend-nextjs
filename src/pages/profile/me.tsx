@@ -5,6 +5,7 @@ import {
 } from 'graphql/generated/QueryProfileMe'
 import { QUERY_PROFILE_ME } from 'graphql/queries/profile'
 import { GetServerSidePropsContext } from 'next'
+import { NextSeo } from 'next-seo'
 import Profile from 'templates/Profile'
 import { initializeApollo } from 'utils/apollo'
 import protectedRoutes from 'utils/protected-routes'
@@ -12,6 +13,7 @@ import protectedRoutes from 'utils/protected-routes'
 export default function Me(props: FormProfileProps) {
   return (
     <Profile>
+      <NextSeo title="My Profile - Won Games" />
       <FormProfile {...props} />
     </Profile>
   )

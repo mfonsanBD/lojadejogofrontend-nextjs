@@ -3,6 +3,9 @@ import { AppProps } from 'next/app'
 import { useApollo } from 'utils/apollo'
 import NextNprogress from 'nextjs-progressbar'
 
+import { DefaultSeo } from 'next-seo'
+import SEO from '../../next-seo.config'
+
 import { CartProvider } from 'hooks/use-cart'
 import { ApolloProvider } from '@apollo/client'
 import { ThemeProvider } from 'styled-components'
@@ -32,6 +35,7 @@ function App({ Component, pageProps }: AppProps) {
                   content="The best games stories in the world!"
                 />
               </Head>
+              <DefaultSeo {...SEO} />
               <GlobalStyles />
               <NextNprogress
                 color={theme.colors.primary}

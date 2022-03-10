@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Base from 'templates/Base'
+import { NextSeo } from 'next-seo'
 
 import Showcase from 'components/Showcase'
 import TextContent from 'components/TextContent'
@@ -13,6 +14,7 @@ import * as S from './styles'
 import { Divider } from 'components/Divider'
 
 export type GameTemplateProps = {
+  slug: string
   cover: string
   gameInfo: GameInfoProps
   gallery?: GalleryImageProps[]
@@ -26,6 +28,7 @@ export type GameTemplateProps = {
 }
 
 const Game = ({
+  slug,
   cover,
   gameInfo,
   gallery,
@@ -38,6 +41,22 @@ const Game = ({
   recommendedGames
 }: GameTemplateProps) => (
   <Base>
+    <NextSeo
+      title={`${gameInfo.title} - Won Games`}
+      description={gameInfo.description}
+      canonical={`https://won-games-self.vercel.app/game/${slug}`}
+      openGraph={{
+        url: `https://won-games-self.vercel.app/game/${slug}`,
+        title: `${gameInfo.title} - Won Games`,
+        description: gameInfo.description,
+        images: [
+          {
+            url: cover,
+            alt: `${gameInfo.title}`
+          }
+        ]
+      }}
+    />
     <S.CoverWrapper>
       <Image src={cover} alt={gameInfo.title} layout="fill" objectFit="cover" />
     </S.CoverWrapper>

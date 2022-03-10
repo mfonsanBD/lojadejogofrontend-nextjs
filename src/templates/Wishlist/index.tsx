@@ -13,6 +13,7 @@ import Loader from 'components/Loader'
 import { useWishlist } from 'hooks/use-wishlist'
 
 import * as S from './styles'
+import { NextSeo } from 'next-seo'
 
 export type WishlistTemplateProps = {
   recommendedTitle: string
@@ -28,6 +29,7 @@ const Wishlist = ({
   const { items, loading } = useWishlist()
   return (
     <Base>
+      <NextSeo title="Wishlist - Won Games" />
       <Container>
         <Heading lineLeft lineColor="secondary">
           Wishlist
