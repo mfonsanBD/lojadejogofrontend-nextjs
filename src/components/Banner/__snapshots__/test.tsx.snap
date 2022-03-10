@@ -120,7 +120,7 @@ exports[`<Banner /> should render correctly 1`] = `
     <img
       alt="Defy death"
       layout="fill"
-      src="http://localhost:1337/uploads/cyberpunk_2077_e33ac329c6.jpg"
+      src="/uploads/cyberpunk_2077_e33ac329c6.jpg"
     />
   </div>
   <div

@@ -11,7 +11,7 @@ const gameMock = (id: string) => ({
   developers: [{ name: 'sample developer' }],
   price: 10.5,
   cover: {
-    url: 'http://localhost:1337/sample-game.jpg'
+    url: '/sample-game.jpg'
   },
   __typename: 'Game'
 })

@@ -7,7 +7,6 @@ import WishlistButton from 'components/WishlistButton'
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
 
 import FormatPrice from 'utils/formatPrice'
-import FormatImageUrl from 'utils/formatImageUrl'
 
 import * as S from './styles'
 
@@ -46,12 +45,7 @@ const GameCard = ({
 
     <Link href={`/game/${slug}`} passHref>
       <S.ImageBox>
-        <Image
-          src={FormatImageUrl(img)}
-          alt={title}
-          layout="fill"
-          objectFit="cover"
-        />
+        <Image src={img} alt={title} layout="fill" objectFit="cover" />
       </S.ImageBox>
     </Link>
 

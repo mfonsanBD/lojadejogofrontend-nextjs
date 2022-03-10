@@ -1,3 +1,11 @@
-export default function FormatImageUrl(url: string): string {
-  return `http://localhost:1337${url}`
+export const getImageUrl = (url: string | undefined) => {
+  if (process.env.NEXT_PUBLIC_IMAGE_HOST) {
+    return `${process.env.NEXT_PUBLIC_IMAGE_HOST}${url}`
+  }
+
+  if (url) {
+    return url
+  }
+
+  return null
 }

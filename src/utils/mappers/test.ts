@@ -16,7 +16,7 @@ import { QueryOrders_orders } from 'graphql/generated/QueryOrders'
 describe('BannerMapper()', () => {
   it('should return the right format when mapped', () => {
     const banner = {
-      img: { url: 'http://localhost:1337/image.jpg' },
+      img: { url: '/image.jpg' },
       title: 'Banner Title',
       subtitle: 'Banner subtitle',
       button: {
@@ -68,7 +68,7 @@ describe('GameMapper()', () => {
         title: 'Game Name',
         slug: 'game-slug',
         developer: 'Developer Name',
-        img: '/image.jpg',
+        img: 'http://localhost:1337/image.jpg',
         price: 10
       }
     ])

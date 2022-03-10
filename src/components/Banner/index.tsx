@@ -3,8 +3,6 @@ import Image from 'next/image'
 import Button from 'components/Button'
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
 
-import FormatImageUrl from 'utils/formatImageUrl'
-
 import * as S from './styles'
 
 export type BannerProps = {
@@ -36,7 +34,7 @@ const Banner = ({
     )}
 
     <S.ImageWrapper>
-      <Image src={FormatImageUrl(img)} alt={title} layout="fill" />
+      <Image src={img} alt={title} layout="fill" />
     </S.ImageWrapper>
 
     <S.Caption>

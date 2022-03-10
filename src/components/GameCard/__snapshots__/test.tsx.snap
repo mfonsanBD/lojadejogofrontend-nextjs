@@ -213,7 +213,7 @@ exports[`<GameCard /> should render correctly 1`] = `
     <img
       alt="Population Zero"
       layout="fill"
-      src="http://localhost:1337/uploads/inscryption_c196d66de2.jpg"
+      src="/uploads/inscryption_c196d66de2.jpg"
     />
   </a>
   <div

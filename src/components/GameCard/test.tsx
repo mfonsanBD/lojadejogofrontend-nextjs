@@ -27,7 +27,7 @@ describe('<GameCard />', () => {
 
     expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
       'src',
-      `http://localhost:1337${props.img}`
+      `${props.img}`
     )
 
     expect(screen.getByRole('link', { name: props.title })).toHaveAttribute(

@@ -3,14 +3,14 @@ import {
   QueryHome_sections_freeGamesSection_highlight
 } from 'graphql/generated/QueryHome'
 import { QueryGames_games } from 'graphql/generated/QueryGames'
-import FormatImageUrl from 'utils/formatImageUrl'
+import { getImageUrl } from 'utils/formatImageUrl'
 import FormatPrice from 'utils/formatPrice'
 import { QueryWishlist_wishlists_games } from 'graphql/generated/QueryWishlist'
 import { QueryOrders_orders } from 'graphql/generated/QueryOrders'
 
 export const BannerMapper = (banners: QueryHome_banners[]) => {
   return banners.map((banner) => ({
-    img: banner.img?.url,
+    img: `${getImageUrl(banner.img?.url)}`,
     title: banner.title,
     subtitle: banner.subtitle,
     buttonLabel: banner.button?.label,
@@ -32,7 +32,7 @@ export const GameMapper = (
         title: game.name,
         slug: game.slug,
         developer: game.developers[0].name,
-        img: game.cover?.url,
+        img: `${getImageUrl(game.cover?.url)}`,
         price: game.price
       }))
     : []
@@ -45,8 +45,8 @@ export const HighlightMapper = (
     ? {
         title: highlight.title,
         subtitle: highlight.subtitle,
-        background: `${FormatImageUrl(highlight.background!.url)}`,
-        float_image: `${FormatImageUrl(highlight.float_image!.url)}`,
+        background: `${getImageUrl(highlight.background!.url)}`,
+        float_image: `${getImageUrl(highlight.float_image!.url)}`,
         buttonLabel: highlight.buttonLabel,
         buttonLink: highlight.buttonLink,
         alignment: highlight.alignment
@@ -58,14 +58,14 @@ export const cartMapper = (games: QueryGames_games[] | undefined) => {
   return games
     ? games.map((game) => ({
         id: game.id,
-        img: `${FormatImageUrl(game.cover!.url)}`,
+        img: `${getImageUrl(game.cover!.url)}`,
         title: game.name,
         price: FormatPrice(game.price)
       }))
     : []
 }
 
-export const OrdersMapper = (orders: QueryOrders_orders[]) => {
+export const OrdersMapper = (orders: QueryOrders_orders[] | undefined) => {
   return orders
     ? orders.map((order) => {
         return {
@@ -87,7 +87,7 @@ export const OrdersMapper = (orders: QueryOrders_orders[]) => {
             title: game.name,
             downloadLink:
               'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
-            img: FormatImageUrl(game.cover!.url),
+            img: getImageUrl(game.cover!.url),
             price: game.price ? FormatPrice(game.price) : 'Free'
           }))
         }
