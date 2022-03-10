@@ -32,7 +32,7 @@ function App({ Component, pageProps }: AppProps) {
                 <meta name="theme-color" content="#06092B" />
                 <meta
                   name="description"
-                  content="The best games stories in the world!"
+                  content="All your favorite games in one place, WON is the best and most complete gaming platform."
                 />
               </Head>
               <DefaultSeo {...SEO} />
