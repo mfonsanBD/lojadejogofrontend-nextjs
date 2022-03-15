@@ -1,17 +1,16 @@
 import 'match-media-mock'
-import { render, screen, fireEvent } from 'utils/test-utils'
-import itemsMock from './mock'
-
+import { fireEvent, render, screen } from 'utils/test-utils'
 import Gallery from '.'
+import itemsMock from './mock'
 
 describe('<Gallery />', () => {
   it('should render thumbnails as button', () => {
     render(<Gallery items={itemsMock.slice(0, 2)} />)
     expect(
-      screen.getByRole('button', { name: /Thamb - Gallery Image 1/i })
+      screen.getByRole('button', { name: /Thumb - Gallery Image 1/i })
     ).toHaveAttribute('src', itemsMock[0].src)
     expect(
-      screen.getByRole('button', { name: /Thamb - Gallery Image 2/i })
+      screen.getByRole('button', { name: /Thumb - Gallery Image 2/i })
     ).toHaveAttribute('src', itemsMock[1].src)
   })
 
@@ -27,7 +26,7 @@ describe('<Gallery />', () => {
 
     //clicar na imagem de abrir o modal e verificar se ele abriu
     fireEvent.click(
-      screen.getByRole('button', { name: /Thamb - Gallery Image 1/i })
+      screen.getByRole('button', { name: /Thumb - Gallery Image 1/i })
     )
     expect(modal.getAttribute('aria-hidden')).toBe('false')
     expect(modal).toHaveStyle({ opacity: 1 })
@@ -38,7 +37,7 @@ describe('<Gallery />', () => {
 
     //clicar na thambnail
     fireEvent.click(
-      screen.getByRole('button', { name: /Thamb - Gallery Image 2/i })
+      screen.getByRole('button', { name: /Thumb - Gallery Image 2/i })
     )
 
     //espero que a imagem da thambnail seja aberta
@@ -54,7 +53,7 @@ describe('<Gallery />', () => {
 
     //clicar na imagem de abrir o modal e verificar se ele abriu
     fireEvent.click(
-      screen.getByRole('button', { name: /Thamb - Gallery Image 1/i })
+      screen.getByRole('button', { name: /Thumb - Gallery Image 1/i })
     )
 
     //clicar para fechar o modal

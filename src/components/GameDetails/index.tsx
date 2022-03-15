@@ -1,6 +1,6 @@
+import { Apple, Linux, Windows } from '@styled-icons/fa-brands'
 import Heading from 'components/Heading'
 import MediaMatch from 'components/MediaMatch'
-import { Linux, Windows, Apple } from '@styled-icons/fa-brands'
 import * as S from './styles'
 
 type Platform = 'windows' | 'linux' | 'mac'
@@ -29,7 +29,7 @@ const GameDetails = ({
     windows: <Windows title="Windows" size={18} />
   }
   return (
-    <S.Wrapper>
+    <S.Wrapper data-cy="gameDetails">
       <MediaMatch greaterThan="small">
         <Heading lineLeft lineColor="secondary" color="white">
           Game Details
