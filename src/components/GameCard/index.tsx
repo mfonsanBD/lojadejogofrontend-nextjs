@@ -1,13 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from 'next/link'
-import Image from 'next/image'
-
 import CartButton from 'components/CartButton'
-import WishlistButton from 'components/WishlistButton'
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
-
+import WishlistButton from 'components/WishlistButton'
+import Image from 'next/image'
+import Link from 'next/link'
 import FormatPrice from 'utils/formatPrice'
-
 import * as S from './styles'
 
 export type GameCardProps = {
@@ -36,7 +33,7 @@ const GameCard = ({
   ribbonSize = 'small',
   ribbonColor = 'primary'
 }: GameCardProps) => (
-  <S.Wrapper>
+  <S.Wrapper data-cy="gameCard">
     {!!ribbon && (
       <Ribbon size={ribbonSize} color={ribbonColor}>
         {ribbon}

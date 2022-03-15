@@ -1,6 +1,5 @@
-import Image from 'next/image'
 import Button from 'components/Button'
-
+import Image from 'next/image'
 import * as S from './styles'
 
 export type HighlightAlignment = 'right' | 'left'
@@ -25,7 +24,7 @@ const Highlight = ({
   alignment = 'right'
 }: HighlightProps) => {
   return (
-    <S.Wrapper alignment={alignment}>
+    <S.Wrapper alignment={alignment} data-cy="highlight">
       <Image
         src={background}
         alt={`${title} background`}
