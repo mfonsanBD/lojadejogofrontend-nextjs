@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import GameItem, { GameItemProps } from '.'
 import gameItemMock from './mock'
 
@@ -16,9 +16,9 @@ export const WithPayment: Story<GameItemProps> = (args) => (
 
 WithPayment.args = {
   paymentInfo: {
-    cardNumber: '**** **** **** 4326',
+    number: '**** **** **** 4326',
     flag: 'mastercard',
-    image: '/img/cards/mastercard.png',
+    img: '/img/cards/mastercard.png',
     purchaseDate: 'Purchase made on 07/20/2020 at 20:32'
   },
   downloadLink: 'https://google.com'

@@ -1,20 +1,18 @@
-import Image from 'next/image'
-import Base from 'templates/Base'
-import { NextSeo } from 'next-seo'
-
+import { Divider } from 'components/Divider'
+import Gallery, { GalleryImageProps } from 'components/Gallery'
+import { GameCardProps } from 'components/GameCard'
+import GameDetails, { GameDetailsProps } from 'components/GameDetails'
+import GameInfo, { GameInfoProps } from 'components/GameInfo'
+import { HighlightProps } from 'components/Highlight'
 import Showcase from 'components/Showcase'
 import TextContent from 'components/TextContent'
-import { GameCardProps } from 'components/GameCard'
-import { HighlightProps } from 'components/Highlight'
-import GameInfo, { GameInfoProps } from 'components/GameInfo'
-import Gallery, { GalleryImageProps } from 'components/Gallery'
-import GameDetails, { GameDetailsProps } from 'components/GameDetails'
-
+import { NextSeo } from 'next-seo'
+import Image from 'next/image'
+import Base from 'templates/Base'
 import * as S from './styles'
-import { Divider } from 'components/Divider'
 
 export type GameTemplateProps = {
-  slug: string
+  slug?: string
   cover: string
   gameInfo: GameInfoProps
   gallery?: GalleryImageProps[]

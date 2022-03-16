@@ -1,13 +1,20 @@
-import { render, screen } from 'utils/test-utils'
-
-import highlightMock from 'components/Highlight/mock'
 import gamesMock from 'components/GameCardSlider/mock'
-
+import highlightMock from 'components/Highlight/mock'
+import 'match-media-mock'
+import { render, screen } from 'utils/test-utils'
 import Cart from '.'
 
 const props = {
+  session: {
+    jwt: 'token',
+    user: {
+      email: 'won@games.com'
+    },
+    expires: '13234'
+  },
+  recommendedTitle: 'You may like these games',
   recommendedHighlight: highlightMock,
-  recommendedGames: gamesMock.slice(0, 5)
+  recommendedGames: gamesMock
 }
 
 jest.mock('templates/Base', () => ({
@@ -52,9 +59,9 @@ describe('<Cart />', () => {
     expect(
       screen.getByRole('heading', { name: /my cart/i })
     ).toBeInTheDocument()
-    expect(screen.getByTestId('Mock Showcase')).toBeInTheDocument()
     expect(screen.getByTestId('Mock Cart')).toBeInTheDocument()
     expect(screen.getByTestId('Mock PaymentForm')).toBeInTheDocument()
+    expect(screen.getByTestId('Mock Showcase')).toBeInTheDocument()
     expect(screen.queryByTestId('Mock Empty')).not.toBeInTheDocument()
   })
 })
