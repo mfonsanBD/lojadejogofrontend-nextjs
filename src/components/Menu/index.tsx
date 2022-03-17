@@ -1,16 +1,17 @@
-import { useState } from 'react'
-import Link from 'next/link'
+import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-line/Menu2'
 import { Search as SearchIcon } from '@styled-icons/remix-line/Search'
-import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
-
-import * as S from './styles'
-import Logo from 'components/Logo'
 import Button from 'components/Button'
-import MediaMatch from 'components/MediaMatch'
 import CartDropdown from 'components/CartDropdown'
 import CartIcon from 'components/CartIcon'
+import Logo from 'components/Logo'
+import MediaMatch from 'components/MediaMatch'
 import UserDropdown from 'components/UserDropdown'
+import { signOut } from 'next-auth/client'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
+import * as S from './styles'
 
 export type MenuProps = {
   username?: string | null
@@ -19,8 +20,9 @@ export type MenuProps = {
 
 const Menu = ({ username, loading }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false)
+  const { push } = useRouter()
   return (
-    <S.Wrapper>
+    <S.Wrapper isOpen={isOpen}>
       <MediaMatch lessThan="medium">
         <S.IconWrapper onClick={() => setIsOpen(true)}>
           <MenuIcon aria-label="Open Menu" />
@@ -98,9 +100,20 @@ const Menu = ({ username, loading }: MenuProps) => {
                   <Link href="/wishlist" passHref>
                     <S.MenuLink>Wishlist</S.MenuLink>
                   </Link>
-                  <Link href="/profile/logout" passHref>
-                    <S.MenuLink>Sign Out</S.MenuLink>
-                  </Link>
+
+                  <S.MenuLink
+                    role="button"
+                    onClick={async () => {
+                      const data = await signOut({
+                        redirect: false,
+                        callbackUrl: '/'
+                      })
+                      push(data.url)
+                    }}
+                    title="sign out"
+                  >
+                    Sign Out
+                  </S.MenuLink>
                 </>
               )}
             </S.MenuNav>
