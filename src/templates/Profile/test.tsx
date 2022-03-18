@@ -1,6 +1,5 @@
 import 'match-media-mock'
 import { render, screen } from 'utils/test-utils'
-
 import Profile from '.'
 
 jest.mock('next/router', () => ({
@@ -33,7 +32,7 @@ describe('<Profile />', () => {
     render(<Profile>Lorem Ipsum</Profile>)
 
     expect(screen.getByText('Lorem Ipsum')).toBeInTheDocument()
-    expect(screen.getByText(/My profile/i)).toBeInTheDocument()
+    expect(screen.getByText(/meu perfil/i)).toBeInTheDocument()
     expect(screen.getByTestId('Mock ProfileMenu')).toBeInTheDocument()
   })
 })

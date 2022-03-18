@@ -1,17 +1,14 @@
 import { Done } from '@styled-icons/material-outlined/Done'
-import Link from 'next/link'
-
-import Base from 'templates/Base'
-
 import { Container } from 'components/Container'
 import { GameCardProps } from 'components/GameCard'
-import Showcase from 'components/Showcase'
 import { HighlightProps } from 'components/Highlight'
-
-import * as S from './styles'
+import Showcase from 'components/Showcase'
 import { useCart } from 'hooks/use-cart'
-import { useEffect } from 'react'
 import { NextSeo } from 'next-seo'
+import Link from 'next/link'
+import { useEffect } from 'react'
+import Base from 'templates/Base'
+import * as S from './styles'
 
 export type SuccessTemplateProps = {
   recommendedTitle: string
@@ -32,22 +29,22 @@ const Success = ({
 
   return (
     <Base>
-      <NextSeo title="Success - Won Games" />
+      <NextSeo title="Sucesso - Won Games" />
       <Container>
         <S.Wrapper>
-          <S.Heading>Your purchase was successful!</S.Heading>
+          <S.Heading>Compra realizada com sucesso!</S.Heading>
 
           <S.CheckMark>
             <Done />
           </S.CheckMark>
 
           <S.Text>
-            Wait for your payment details by email. Your game is now available
-            for download inside your{' '}
+            Aguarde seus dados de pagamento por e-mail. Seu jogo já está
+            disponível para download dentro da sua{' '}
             <Link href="/profile/orders">
-              <a>Orders List</a>
+              <a>Lista de Pedidos</a>
             </Link>
-            . Enjoy!
+            . Aproveite!
           </S.Text>
         </S.Wrapper>
       </Container>

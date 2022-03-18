@@ -43,7 +43,7 @@ function App({ Component, pageProps }: AppProps) {
                 showOnShallow={true}
               />
               <StickyNote>
-                <p>Esse é apenas um site de estudos!</p>
+                <p>Este site foi desenvolvido como projeto de estudo!</p>
               </StickyNote>
               <Component {...pageProps} />
             </WishlistProvider>

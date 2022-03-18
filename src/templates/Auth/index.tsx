@@ -1,8 +1,7 @@
-import Link from 'next/link'
-import Image from 'next/image'
-
 import Heading from 'components/Heading'
 import Logo from 'components/Logo'
+import Image from 'next/image'
+import Link from 'next/link'
 import * as S from './styles'
 
 type AuthProps = {
@@ -30,10 +29,10 @@ const Auth = ({ title, children }: AuthProps) => (
 
         <div>
           <Heading size="huge" color="white">
-            All your favorite games in one place
+            Todos os seus jogos favoritos em um só lugar
           </Heading>
           <S.Subtitle>
-            <strong>WON</strong> is the best and most complete gaming platform.
+            <strong>WON</strong> é a melhor e mais completa plataforma de jogos.
           </S.Subtitle>
         </div>
 

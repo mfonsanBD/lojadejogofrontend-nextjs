@@ -1,21 +1,18 @@
-import { useState } from 'react'
-import { useRouter } from 'next/router'
-
 import {
   CheckCircleOutline,
   Email,
   ErrorOutline
 } from '@styled-icons/material-outlined'
-
-import {
-  FormWrapper,
-  FormLoading,
-  FormError,
-  FormSuccess
-} from 'components/Form'
 import Button from 'components/Button'
+import {
+  FormError,
+  FormLoading,
+  FormSuccess,
+  FormWrapper
+} from 'components/Form'
 import TextField from 'components/TextField'
-
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 import { FieldErrors, forgotValidate } from 'utils/validations'
 
 const FormForgotPassword = () => {
@@ -71,7 +68,7 @@ const FormForgotPassword = () => {
       {success ? (
         <FormSuccess>
           <CheckCircleOutline />
-          You just received an email!
+          Enviamos um e-mail para você
         </FormSuccess>
       ) : (
         <>
@@ -83,7 +80,7 @@ const FormForgotPassword = () => {
           <form onSubmit={handleSubmit}>
             <TextField
               name="email"
-              placeholder="Email"
+              placeholder="E-mail"
               type="text"
               error={fieldError?.email}
               initialValue={query.email as string}
@@ -92,7 +89,7 @@ const FormForgotPassword = () => {
             />
 
             <Button type="submit" size="large" fullWidth disabled={loading}>
-              {loading ? <FormLoading /> : <span>Send email</span>}
+              {loading ? <FormLoading /> : <span>Enviar E-mail</span>}
             </Button>
           </form>
         </>

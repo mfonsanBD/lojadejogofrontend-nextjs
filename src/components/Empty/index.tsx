@@ -1,6 +1,5 @@
 import Button from 'components/Button'
 import Link from 'next/link'
-
 import * as S from './styles'
 
 export type EmptyProps = {
@@ -13,7 +12,7 @@ const Empty = ({ title, description, hasLink }: EmptyProps) => (
   <S.Wrapper>
     <S.Image
       src="/img/empty.svg"
-      alt="a gamer in a couch playing videogame"
+      alt="Um gamer no sofá jogando videogame"
       role="image"
     />
 
@@ -22,7 +21,7 @@ const Empty = ({ title, description, hasLink }: EmptyProps) => (
 
     {hasLink && (
       <Link href="/" passHref>
-        <Button as="a">Go back to store</Button>
+        <Button as="a">Voltar a Página Inicial</Button>
       </Link>
     )}
   </S.Wrapper>

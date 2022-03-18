@@ -1,9 +1,8 @@
-import Spinner from 'components/Spinner'
+import { Favorite, FavoriteBorder } from '@styled-icons/material-outlined'
 import Button, { ButtonProps } from 'components/Button'
+import Spinner from 'components/Spinner'
 import { useWishlist } from 'hooks/use-wishlist'
 import { useSession } from 'next-auth/client'
-
-import { Favorite, FavoriteBorder } from '@styled-icons/material-outlined'
 import { useState } from 'react'
 
 type WishlistButtonProps = {
@@ -27,8 +26,8 @@ const WishlistButton = ({
   }
 
   const ButtonText = isInWishlist(id)
-    ? 'Remove from Wishlist'
-    : 'Add to Wishlist'
+    ? 'Remover dos Favoritos'
+    : 'Adicionar aos Favoritos'
 
   if (!session) return null
 

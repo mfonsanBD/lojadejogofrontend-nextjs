@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FormSignUp /> should render the form 1`] = `
+.c4 {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
 .c7 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -125,12 +131,6 @@ exports[`<FormSignUp /> should render the form 1`] = `
   border-bottom: 0.1rem solid #29b3a3;
 }
 
-.c4 {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: hidden;
-}
-
 <div
   class="c0"
 >
@@ -164,7 +164,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
         <input
           class="c5"
           name="username"
-          placeholder="Username"
+          placeholder="Usuário"
           type="text"
           value=""
         />
@@ -241,7 +241,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
         <input
           class="c5"
           name="password"
-          placeholder="Password"
+          placeholder="Senha"
           type="password"
           value=""
         />
@@ -283,7 +283,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
         <input
           class="c5"
           name="confirm_password"
-          placeholder="Confirm Password"
+          placeholder="Confirmar Senha"
           type="password"
           value=""
         />
@@ -295,19 +295,19 @@ exports[`<FormSignUp /> should render the form 1`] = `
     >
       <span>
         <span>
-          Sign Up Now
+          Cadastrar Agora
         </span>
       </span>
     </button>
     <div
       class="c8"
     >
-      Already have an account?
+      Tem uma conta?
        
       <a
         href="/sign-in"
       >
-        Sign In
+        Entrar
       </a>
     </div>
   </form>

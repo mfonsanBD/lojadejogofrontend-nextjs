@@ -1,5 +1,4 @@
-import { render, screen, fireEvent } from 'utils/test-utils'
-
+import { fireEvent, render, screen } from 'utils/test-utils'
 import Menu from '.'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -37,25 +36,25 @@ describe('<Menu />', () => {
   it('should show register box when logged out', () => {
     render(<Menu />)
 
-    expect(screen.getByText(/sign up/i)).toBeInTheDocument()
-    expect(screen.getAllByText(/sign in/i)).toHaveLength(2)
-    expect(screen.queryByText(/wishlist/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/my account/i)).not.toBeInTheDocument()
+    expect(screen.getByText(/cadastre-se/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/entrar/i)).toHaveLength(2)
+    expect(screen.queryByText(/favoritos/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/minha conta/i)).not.toBeInTheDocument()
   })
 
   it('should show wishlist e my profile when logged in', () => {
     render(<Menu username="mike" />)
 
-    expect(screen.getAllByText(/my account/i)).toHaveLength(2)
-    expect(screen.getAllByText(/wishlist/i)).toHaveLength(2)
-    expect(screen.queryByText(/Sign Up/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/Sign In/i)).not.toBeInTheDocument()
+    expect(screen.getAllByText(/minha conta/i)).toHaveLength(2)
+    expect(screen.getAllByText(/favoritos/i)).toHaveLength(2)
+    expect(screen.queryByText(/cadastre-se/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/entrar/i)).not.toBeInTheDocument()
   })
 
   it('should not show sign in or dropdownUser if loading', () => {
     render(<Menu username="mike" loading />)
 
-    expect(screen.queryByText(/my account/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/Sign In/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/minha conta/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/entrar/i)).not.toBeInTheDocument()
   })
 })

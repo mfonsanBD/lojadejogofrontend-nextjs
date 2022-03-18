@@ -1,7 +1,6 @@
 import userEvent from '@testing-library/user-event'
 import 'server.mock'
 import { render, screen } from 'utils/test-utils'
-
 import FormForgotPassword from '.'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -16,30 +15,30 @@ describe('<FormForgotPassword />', () => {
   it('should render the form', () => {
     render(<FormForgotPassword />)
 
-    expect(screen.getByPlaceholderText(/email/i)).toBeInTheDocument()
+    expect(screen.getByPlaceholderText(/e-mail/i)).toBeInTheDocument()
     expect(
-      screen.getByRole('button', { name: /send email/i })
+      screen.getByRole('button', { name: /enviar e-mail/i })
     ).toBeInTheDocument()
   })
 
   it('should validate the e-mail', async () => {
     render(<FormForgotPassword />)
 
-    userEvent.type(screen.getByPlaceholderText(/email/i), 'valid@email.com')
+    userEvent.type(screen.getByPlaceholderText(/e-mail/i), 'valid@email.com')
 
-    userEvent.click(screen.getByRole('button', { name: /send email/i }))
+    userEvent.click(screen.getByRole('button', { name: /enviar e-mail/i }))
 
     expect(
-      await screen.findByText(/You just received an email!/i)
+      await screen.findByText(/enviamos um e-mail para você/i)
     ).toBeInTheDocument()
   })
 
   it('should show an invalid email error', async () => {
     render(<FormForgotPassword />)
 
-    userEvent.type(screen.getByPlaceholderText(/email/i), 'invalid')
+    userEvent.type(screen.getByPlaceholderText(/e-mail/i), 'invalid')
 
-    userEvent.click(screen.getByRole('button', { name: /send email/i }))
+    userEvent.click(screen.getByRole('button', { name: /enviar e-mail/i }))
 
     expect(
       await screen.findByText(/must be a valid email/i)
@@ -49,12 +48,12 @@ describe('<FormForgotPassword />', () => {
   it('should show an inexistents e-mail error', async () => {
     render(<FormForgotPassword />)
 
-    userEvent.type(screen.getByPlaceholderText(/email/i), 'false@email.com')
+    userEvent.type(screen.getByPlaceholderText(/e-mail/i), 'false@email.com')
 
-    userEvent.click(screen.getByRole('button', { name: /send email/i }))
+    userEvent.click(screen.getByRole('button', { name: /enviar e-mail/i }))
 
     expect(
-      await screen.findByText(/this email does not exist/i)
+      await screen.findByText(/esse e-mail não existe/i)
     ).toBeInTheDocument()
   })
 
@@ -62,6 +61,8 @@ describe('<FormForgotPassword />', () => {
     query = { email: 'valid@email.com' }
     render(<FormForgotPassword />)
 
-    expect(screen.getByPlaceholderText(/email/i)).toHaveValue('valid@email.com')
+    expect(screen.getByPlaceholderText(/e-mail/i)).toHaveValue(
+      'valid@email.com'
+    )
   })
 })

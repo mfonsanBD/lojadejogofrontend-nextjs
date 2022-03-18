@@ -1,19 +1,16 @@
-import Base from 'templates/Base'
-
-import { Grid } from 'components/Grid'
-import Heading from 'components/Heading'
-import Showcase from 'components/Showcase'
 import { Container } from 'components/Container'
-import { HighlightProps } from 'components/Highlight'
-import GameCard, { GameCardProps } from 'components/GameCard'
 import { Divider } from 'components/Divider'
 import Empty from 'components/Empty'
+import GameCard, { GameCardProps } from 'components/GameCard'
+import { Grid } from 'components/Grid'
+import Heading from 'components/Heading'
+import { HighlightProps } from 'components/Highlight'
 import Loader from 'components/Loader'
-
+import Showcase from 'components/Showcase'
 import { useWishlist } from 'hooks/use-wishlist'
-
-import * as S from './styles'
 import { NextSeo } from 'next-seo'
+import Base from 'templates/Base'
+import * as S from './styles'
 
 export type WishlistTemplateProps = {
   recommendedTitle: string
@@ -29,10 +26,10 @@ const Wishlist = ({
   const { items, loading } = useWishlist()
   return (
     <Base>
-      <NextSeo title="Wishlist - Won Games" />
+      <NextSeo title="Favoritos - Won Games" />
       <Container>
         <Heading lineLeft lineColor="secondary">
-          Wishlist
+          Favoritos
         </Heading>
 
         {loading ? (
@@ -47,8 +44,8 @@ const Wishlist = ({
           </Grid>
         ) : (
           <Empty
-            title="Your wishlist is empty"
-            description="Games added to your wishlist will appear here"
+            title="Sua lista de favoritos está vazia"
+            description="Adicione jogos a sua lista de favoritos e eles aparecerão aqui."
             hasLink
           />
         )}

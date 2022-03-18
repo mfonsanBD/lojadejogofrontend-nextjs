@@ -1,5 +1,4 @@
 import { render, screen } from 'utils/test-utils'
-
 import Empty from '.'
 
 const props = {
@@ -13,7 +12,7 @@ describe('<Empty />', () => {
 
     expect(
       screen.getByRole('image', {
-        name: /a gamer in a couch playing videogame/i
+        name: /um gamer no sofá jogando videogame/i
       })
     ).toBeInTheDocument()
 
@@ -24,7 +23,7 @@ describe('<Empty />', () => {
     expect(screen.getByText(/a simple description/i)).toBeInTheDocument()
 
     expect(
-      screen.getByRole('link', { name: /go back to store/i })
+      screen.getByRole('link', { name: /voltar a página inicial/i })
     ).toHaveAttribute('href', '/')
 
     expect(container.parentElement).toMatchSnapshot()
@@ -34,7 +33,7 @@ describe('<Empty />', () => {
     render(<Empty {...props} />)
 
     expect(
-      screen.queryByRole('link', { name: /go back to store/i })
+      screen.queryByRole('link', { name: /voltar a página inicial/i })
     ).not.toBeInTheDocument()
   })
 })

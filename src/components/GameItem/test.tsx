@@ -1,9 +1,8 @@
-import { render, screen } from 'utils/test-utils'
-import gameItemMock from './mock'
-
-import GameItem from '.'
-import { CartContextDefaultValues } from 'hooks/use-cart'
 import userEvent from '@testing-library/user-event'
+import { CartContextDefaultValues } from 'hooks/use-cart'
+import { render, screen } from 'utils/test-utils'
+import GameItem from '.'
+import gameItemMock from './mock'
 
 describe('<GameItem />', () => {
   it('should render the item', () => {
@@ -29,7 +28,7 @@ describe('<GameItem />', () => {
 
     render(<GameItem {...gameItemMock} />, { cartProviderProps })
 
-    const removeLink = screen.getByText(/remove/i)
+    const removeLink = screen.getByText(/remover/i)
     expect(removeLink).toBeInTheDocument()
 
     userEvent.click(removeLink)
@@ -51,7 +50,7 @@ describe('<GameItem />', () => {
       number: '**** **** **** 4326',
       flag: 'mastercard',
       img: '/img/cards/mastercard.png',
-      purchaseDate: 'Purchase made on 07/20/2020 at 20:32'
+      purchaseDate: 'Compra feita em 07/20/2020 at 20:32'
     }
 
     render(<GameItem {...gameItemMock} paymentInfo={paymentInfo} />)
@@ -66,14 +65,14 @@ describe('<GameItem />', () => {
 
   it('should render free game when theres no paymentInfo', () => {
     const paymentInfo = {
-      number: 'Free Game',
+      number: 'Jogo Gratuito',
       flag: null,
       img: null,
-      purchaseDate: 'Purchase made on 07/20/2020 at 20:32'
+      purchaseDate: 'Compra feita em 07/20/2020 at 20:32'
     }
 
     render(<GameItem {...gameItemMock} paymentInfo={paymentInfo} />)
 
-    expect(screen.getByText(/free game/i)).toBeInTheDocument()
+    expect(screen.getByText(/jogo gratuito/i)).toBeInTheDocument()
   })
 })

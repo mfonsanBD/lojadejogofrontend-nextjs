@@ -1,6 +1,5 @@
-import { render, screen } from 'utils/test-utils'
 import userEvent from '@testing-library/user-event'
-
+import { render, screen } from 'utils/test-utils'
 import UserDropdown from '.'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -23,11 +22,9 @@ describe('<UserDropdown />', () => {
     userEvent.click(screen.getByText(/anorak/i))
 
     expect(
-      screen.getByRole('link', { name: /my account/i })
+      screen.getByRole('link', { name: /minha conta/i })
     ).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /wishlist/i })).toBeInTheDocument()
-    expect(
-      screen.getByRole('button', { name: /sign out/i })
-    ).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /favoritos/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /sair/i })).toBeInTheDocument()
   })
 })

@@ -1,16 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { PaymentIntent, StripeCardElementChangeEvent } from '@stripe/stripe-js'
+import { ErrorOutline, ShoppingCart } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 import { FormLoading } from 'components/Form'
 import Heading from 'components/Heading'
 import { useCart } from 'hooks/use-cart'
 import { Session } from 'next-auth'
-import React, { useState, useEffect } from 'react'
-import { ShoppingCart, ErrorOutline } from '@styled-icons/material-outlined'
+import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
 import { createPayment, createPaymentIntent } from 'utils/stripe/methods'
 import * as S from './styles'
-import { useRouter } from 'next/router'
 
 type PaymentFormProps = {
   session: Session
@@ -118,11 +118,13 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
       <form onSubmit={handleSubmit}>
         <S.Body>
           <Heading lineBottom lineColor="primary" color="black" size="small">
-            Payment
+            Pagamento
           </Heading>
 
           {freeGames ? (
-            <S.FreeGames>Only free games, click buy and enjoy!</S.FreeGames>
+            <S.FreeGames>
+              Apenas jogos grátis, clique em comprar e divirta-se!
+            </S.FreeGames>
           ) : (
             <CardElement
               options={{
@@ -142,15 +144,15 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
         </S.Body>
 
         <S.Footer>
-          <Button as="a" minimal fullWidth>
-            Continue Shopping
+          <Button as="a" href="/games" minimal fullWidth>
+            Continuar Comprando
           </Button>
           <Button
             fullWidth
             icon={loading ? <FormLoading /> : <ShoppingCart />}
             disabled={!freeGames && (isDisabled || !!error)}
           >
-            {!loading && <span>Buy Now</span>}
+            {!loading && <span>Comprar Agora</span>}
           </Button>
         </S.Footer>
       </form>

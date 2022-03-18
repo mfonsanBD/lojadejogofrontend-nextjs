@@ -1,6 +1,5 @@
 import { CartContextDefaultValues } from 'hooks/use-cart'
 import { render, screen } from 'utils/test-utils'
-
 import CartList from '.'
 import items from './mock'
 
@@ -28,7 +27,7 @@ describe('<CartList />', () => {
 
     render(<CartList hasButton />, { cartProviderProps })
 
-    expect(screen.getByText(/buy it now/i)).toBeInTheDocument()
+    expect(screen.getByText(/comprar agora/i)).toBeInTheDocument()
   })
 
   it('should render loading', () => {
@@ -45,7 +44,7 @@ describe('<CartList />', () => {
   it('should render empty if there are no games', () => {
     render(<CartList />)
 
-    expect(screen.getByText(/your cart is empty/i)).toBeInTheDocument()
+    expect(screen.getByText(/seu carrinho está vazio/i)).toBeInTheDocument()
     expect(screen.queryByText(/total/i)).not.toBeInTheDocument()
   })
 })

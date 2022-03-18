@@ -1,23 +1,19 @@
+import { useMutation } from '@apollo/client'
+import {
+  AccountCircle,
+  Email,
+  ErrorOutline,
+  Lock
+} from '@styled-icons/material-outlined'
+import Button from 'components/Button'
+import { FormError, FormLink, FormLoading, FormWrapper } from 'components/Form'
+import TextField from 'components/TextField'
+import { MUTATION_REGISTER } from 'graphql/mutations/register'
+import { signIn } from 'next-auth/client'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { signIn } from 'next-auth/client'
-
-import Button from 'components/Button'
-import TextField from 'components/TextField'
-import { FormWrapper, FormLink, FormLoading, FormError } from 'components/Form'
-
-import { useMutation } from '@apollo/client'
-import { MUTATION_REGISTER } from 'graphql/mutations/register'
-import { UsersPermissionsRegisterInput } from '../../graphql/generated/globalTypes'
-
-import {
-  Email,
-  Lock,
-  AccountCircle,
-  ErrorOutline
-} from '@styled-icons/material-outlined'
-
 import { FieldErrors, signUpValidate } from 'utils/validations'
+import { UsersPermissionsRegisterInput } from '../../graphql/generated/globalTypes'
 
 const FormSignUp = () => {
   const [formError, setFormError] = useState('')
@@ -82,7 +78,7 @@ const FormSignUp = () => {
       <form onSubmit={handleSubmit}>
         <TextField
           name="username"
-          placeholder="Username"
+          placeholder="Usuário"
           type="text"
           error={fieldError?.username}
           onInputChange={(v) => handleInput('username', v!)}
@@ -98,7 +94,7 @@ const FormSignUp = () => {
         />
         <TextField
           name="password"
-          placeholder="Password"
+          placeholder="Senha"
           type="password"
           error={fieldError?.password}
           onInputChange={(v) => handleInput('password', v!)}
@@ -106,7 +102,7 @@ const FormSignUp = () => {
         />
         <TextField
           name="confirm_password"
-          placeholder="Confirm Password"
+          placeholder="Confirmar Senha"
           type="password"
           error={fieldError?.confirm_password}
           onInputChange={(v) => handleInput('confirm_password', v!)}
@@ -114,13 +110,13 @@ const FormSignUp = () => {
         />
 
         <Button type="submit" size="large" fullWidth disabled={loading}>
-          {loading ? <FormLoading /> : <span>Sign Up Now</span>}
+          {loading ? <FormLoading /> : <span>Cadastrar Agora</span>}
         </Button>
 
         <FormLink>
-          Already have an account?{' '}
+          Tem uma conta?{' '}
           <Link href="/sign-in">
-            <a>Sign In</a>
+            <a>Entrar</a>
           </Link>
         </FormLink>
       </form>

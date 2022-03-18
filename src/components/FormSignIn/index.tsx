@@ -1,15 +1,13 @@
-import { useState } from 'react'
-import { useRouter } from 'next/router'
-import Link from 'next/link'
-import { Email, Lock, ErrorOutline } from '@styled-icons/material-outlined'
-
+import { Email, ErrorOutline, Lock } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
+import { FormError, FormLink, FormLoading, FormWrapper } from 'components/Form'
 import TextField from 'components/TextField'
-import { FormWrapper, FormLink, FormLoading, FormError } from 'components/Form'
-
-import * as S from './styles'
 import { signIn } from 'next-auth/client'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 import { FieldErrors, signInValidate } from 'utils/validations'
+import * as S from './styles'
 
 const FormSignIn = () => {
   const [formError, setFormError] = useState('')
@@ -48,7 +46,7 @@ const FormSignIn = () => {
     }
     setLoading(false)
 
-    setFormError('username or password is invalid')
+    setFormError('Usuário e senha invalidos')
   }
 
   return (
@@ -69,7 +67,7 @@ const FormSignIn = () => {
         />
         <TextField
           name="password"
-          placeholder="Password"
+          placeholder="Senha"
           type="password"
           onInputChange={(v) => handleInput('password', v!)}
           icon={<Lock />}
@@ -77,17 +75,17 @@ const FormSignIn = () => {
         />
 
         <Link href="/forgot-password" passHref>
-          <S.ForgotPassword href="#">Forgot your password?</S.ForgotPassword>
+          <S.ForgotPassword href="#">Esqueci minha senha</S.ForgotPassword>
         </Link>
 
         <Button type="submit" size="large" fullWidth disabled={loading}>
-          {loading ? <FormLoading /> : <span>Sign In Now</span>}
+          {loading ? <FormLoading /> : <span>Entrar Agora</span>}
         </Button>
 
         <FormLink>
-          Dont have an account?{' '}
+          Não tem uma conta?{' '}
           <Link href="/sign-up">
-            <a>Sign Up</a>
+            <a>Cadastre-se</a>
           </Link>
         </FormLink>
       </form>

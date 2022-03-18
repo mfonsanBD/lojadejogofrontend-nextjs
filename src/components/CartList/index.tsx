@@ -37,15 +37,15 @@ const CartList = ({ hasButton = false }: CartListProps) => {
 
             {hasButton && (
               <Link href="/cart" passHref>
-                <Button as="a">Buy it now</Button>
+                <Button as="a">Comprar Agora</Button>
               </Link>
             )}
           </S.Footer>
         </>
       ) : (
         <Empty
-          title="Your cart is empty"
-          description="Go back to the store and explore great games and offers."
+          title="Seu carrinho está vazio"
+          description="Volte para a loja e aproveite nossas ofertas."
         />
       )}
     </S.Wrapper>

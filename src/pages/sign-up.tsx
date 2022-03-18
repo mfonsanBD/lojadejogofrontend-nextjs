@@ -4,16 +4,16 @@ import Auth from 'templates/Auth'
 
 export default function SignUp() {
   return (
-    <Auth title="Sign Up">
+    <Auth title="Cadastro">
       <NextSeo
-        title="Sign Up - Won Games"
-        description="Register on our platform to buy games and add them to favorites."
-        canonical={`https://won-games-self.vercel.app/sign-in`}
+        title="Cadastro - Won Games"
+        description="Cadastre-se em nossa plataforma para comprar jogos e adicionar aos seus favoritos."
+        canonical={`https://wongames.mikedev.com.br/sign-up`}
         openGraph={{
-          url: `https://won-games-self.vercel.app/sign-in`,
-          title: 'Sign Up - Won Games',
+          url: `https://wongames.mikedev.com.br/sign-up`,
+          title: 'Cadastro - Won Games',
           description:
-            'Register on our platform to buy games and add them to favorites.'
+            'Cadastre-se em nossa plataforma para comprar jogos e adicionar aos seus favoritos.'
         }}
       />
       <FormSignUp />

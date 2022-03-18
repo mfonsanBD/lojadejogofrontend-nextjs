@@ -1,7 +1,5 @@
 import { render, screen } from 'utils/test-utils'
-
 import OrdersList from '.'
-
 import mock from './mock'
 
 jest.mock('components/Empty', () => ({
@@ -22,7 +20,7 @@ describe('<OrdersList />', () => {
   it('should render the game items', () => {
     render(<OrdersList items={mock} />)
     expect(
-      screen.getByRole('heading', { name: /my orders/i })
+      screen.getByRole('heading', { name: /meus pedidos/i })
     ).toBeInTheDocument()
 
     expect(screen.getAllByTestId('Mock GameItem')).toHaveLength(2)

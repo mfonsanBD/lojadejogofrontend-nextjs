@@ -1,20 +1,16 @@
-import { useRouter } from 'next/router'
-import { ParsedUrlQueryInput } from 'querystring'
-
-import { Grid } from 'components/Grid'
-import GameCard from 'components/GameCard'
+import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined'
 import Empty from 'components/Empty'
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
-
-import Base from 'templates/Base'
-
-import * as S from './styles'
-import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined'
-
+import GameCard from 'components/GameCard'
+import { Grid } from 'components/Grid'
 import { useQueryGames } from 'graphql/queries/games'
-import { parseQueryStringToWhere, parseQueryStringToFilter } from 'utils/filter'
-import { getImageUrl } from 'utils/formatImageUrl'
 import { NextSeo } from 'next-seo'
+import { useRouter } from 'next/router'
+import { ParsedUrlQueryInput } from 'querystring'
+import Base from 'templates/Base'
+import { parseQueryStringToFilter, parseQueryStringToWhere } from 'utils/filter'
+import { getImageUrl } from 'utils/formatImageUrl'
+import * as S from './styles'
 
 export type GamesTemplateProps = {
   filterItems: ItemProps[]
@@ -55,13 +51,13 @@ const GamesTemplate = ({ filterItems = [] }: GamesTemplateProps) => {
   return (
     <Base>
       <NextSeo
-        title="Games - Won Games"
-        description="Search your favorite game here."
+        title="Jogos - Won Games"
+        description="Busque pelo seu jogo favorito aqui."
         canonical={`https://won-games-self.vercel.app/games`}
         openGraph={{
           url: `https://won-games-self.vercel.app/games`,
-          title: 'Games - Won Games',
-          description: 'Search your favorite game here'
+          title: 'Jogos - Won Games',
+          description: 'Busque pelo seu jogo favorito aqui.'
         }}
       />
       <S.Main>
@@ -96,11 +92,11 @@ const GamesTemplate = ({ filterItems = [] }: GamesTemplateProps) => {
                   {loading ? (
                     <S.ShowMoreLoading
                       src="/img/dots.svg"
-                      alt="Loading more games..."
+                      alt="Carregando mais jogos..."
                     />
                   ) : (
                     <S.ShowMoreButton onClick={handleShowMore}>
-                      <p>Show More</p>
+                      <p>Mostrar Mais</p>
                       <ArrowDown size={35} />
                     </S.ShowMoreButton>
                   )}
@@ -110,7 +106,7 @@ const GamesTemplate = ({ filterItems = [] }: GamesTemplateProps) => {
           ) : (
             <Empty
               title=":'("
-              description="We didn't find any game with this filter"
+              description="Não encontramos nenhum jogo com este filtro"
             />
           )}
         </section>

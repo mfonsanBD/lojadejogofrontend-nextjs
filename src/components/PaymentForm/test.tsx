@@ -1,11 +1,9 @@
+import items from 'components/CartList/mock'
 import { CartContextData, CartContextDefaultValues } from 'hooks/use-cart'
 import { Session } from 'next-auth'
-import { render, screen, waitFor } from 'utils/test-utils'
-
 import * as stripeMethods from 'utils/stripe/methods'
+import { render, screen, waitFor } from 'utils/test-utils'
 import PaymentForm from '.'
-
-import items from 'components/CartList/mock'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
@@ -68,12 +66,14 @@ describe('<PaymentForm />', () => {
     render(<PaymentForm session={session} />)
 
     expect(
-      screen.getByRole('heading', { name: /Payment/i })
+      screen.getByRole('heading', { name: /pagamento/i })
     ).toBeInTheDocument()
 
     expect(screen.getByTestId(/Mock CardElement/i)).toBeInTheDocument()
 
-    expect(screen.getByRole('button', { name: /buy now/i })).toBeDisabled()
+    expect(
+      screen.getByRole('button', { name: /comprar agora/i })
+    ).toBeDisabled()
   })
 
   it('should call createPayment when it renders and render free if gets freeGames', async () => {
@@ -85,7 +85,9 @@ describe('<PaymentForm />', () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText(/Only free games, click buy and enjoy!/i)
+        screen.getByText(
+          /apenas jogos grátis, clique em comprar e divirta-se!/i
+        )
       ).toBeInTheDocument()
     })
   })

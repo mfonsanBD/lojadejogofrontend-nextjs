@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { Download } from '@styled-icons/boxicons-solid/Download'
-import * as S from './styles'
 import { useCart } from 'hooks/use-cart'
 import Image from 'next/image'
+import * as S from './styles'
 
 export type PaymentInfoProps = {
   number: string
@@ -53,7 +53,7 @@ const GameItem = ({
           <S.Group>
             <S.Price>{price}</S.Price>
             {isInCart(id) && (
-              <S.Remove onClick={() => removeFromCart(id)}>Remove</S.Remove>
+              <S.Remove onClick={() => removeFromCart(id)}>Remover</S.Remove>
             )}
           </S.Group>
         </S.Content>

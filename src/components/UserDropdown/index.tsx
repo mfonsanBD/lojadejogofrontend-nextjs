@@ -1,15 +1,13 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { signOut } from 'next-auth/client'
-
-import Dropdown from 'components/Dropdown'
+import { ChevronDown } from '@styled-icons/boxicons-regular/ChevronDown'
 import {
   AccountCircle,
-  FavoriteBorder,
-  ExitToApp
+  ExitToApp,
+  FavoriteBorder
 } from '@styled-icons/material-outlined'
-import { ChevronDown } from '@styled-icons/boxicons-regular/ChevronDown'
-
+import Dropdown from 'components/Dropdown'
+import { signOut } from 'next-auth/client'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import * as S from './styles'
 
 export type UserDropdownProps = {
@@ -30,16 +28,16 @@ const UserDropdown = ({ username }: UserDropdownProps) => {
     >
       <S.Nav>
         <Link href="/profile/me" passHref>
-          <S.Link title="my account">
+          <S.Link title="minha conta">
             <AccountCircle size={24} />
-            <span>My Account</span>
+            <span>Minha Conta</span>
           </S.Link>
         </Link>
 
         <Link href="/wishlist" passHref>
-          <S.Link title="wishlist">
+          <S.Link title="favoritos">
             <FavoriteBorder size={24} />
-            <span>Wishlist</span>
+            <span>Favoritos</span>
           </S.Link>
         </Link>
 
@@ -49,10 +47,10 @@ const UserDropdown = ({ username }: UserDropdownProps) => {
             const data = await signOut({ redirect: false, callbackUrl: '/' })
             push(data.url)
           }}
-          title="sign out"
+          title="Sair"
         >
           <ExitToApp size={24} />
-          <span>Sign Out</span>
+          <span>Sair</span>
         </S.Link>
       </S.Nav>
     </Dropdown>

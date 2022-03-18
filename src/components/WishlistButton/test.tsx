@@ -1,10 +1,9 @@
-import { render, screen } from 'utils/test-utils'
-import { WishlistContextDefaultValues } from 'hooks/use-wishlist'
-
-import WishlistButton from '.'
-import userEvent from '@testing-library/user-event'
 import { waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { WishlistContextDefaultValues } from 'hooks/use-wishlist'
 import { act } from 'react-dom/test-utils'
+import { render, screen } from 'utils/test-utils'
+import WishlistButton from '.'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const useSession = jest.spyOn(require('next-auth/client'), 'useSession')
@@ -19,7 +18,9 @@ describe('<WishlistButton />', () => {
     }
 
     render(<WishlistButton id="1" />, { wishlistProviderProps })
-    expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
+    expect(
+      screen.getByLabelText(/adicionar aos favoritos/i)
+    ).toBeInTheDocument()
   })
 
   it('should render a button to remove from wishlist', () => {
@@ -29,7 +30,7 @@ describe('<WishlistButton />', () => {
     }
 
     render(<WishlistButton id="1" />, { wishlistProviderProps })
-    expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/remover dos favoritos/i)).toBeInTheDocument()
   })
 
   it('should render a button with add to wishlist text', () => {
@@ -39,7 +40,7 @@ describe('<WishlistButton />', () => {
     }
 
     render(<WishlistButton id="1" hasText />, { wishlistProviderProps })
-    expect(screen.getByText(/add to wishlist/i)).toBeInTheDocument()
+    expect(screen.getByText(/adicionar aos favoritos/i)).toBeInTheDocument()
   })
 
   it('should render a button with remove from wishlist text', () => {
@@ -49,7 +50,7 @@ describe('<WishlistButton />', () => {
     }
 
     render(<WishlistButton id="1" hasText />, { wishlistProviderProps })
-    expect(screen.getByText(/remove from wishlist/i)).toBeInTheDocument()
+    expect(screen.getByText(/remover dos favoritos/i)).toBeInTheDocument()
   })
 
   it('should not render if user is not logged', () => {
@@ -64,7 +65,7 @@ describe('<WishlistButton />', () => {
 
     render(<WishlistButton id="1" hasText />, { wishlistProviderProps })
 
-    expect(screen.queryByText(/remove from wishlist/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/remover dos favoritos/i)).not.toBeInTheDocument()
   })
 
   it('should add to wishlist', async () => {
@@ -77,7 +78,7 @@ describe('<WishlistButton />', () => {
     render(<WishlistButton id="1" hasText />, { wishlistProviderProps })
 
     act(() => {
-      userEvent.click(screen.getByText(/add to wishlist/i))
+      userEvent.click(screen.getByText(/adicionar aos favoritos/i))
     })
 
     waitFor(() => {
@@ -95,7 +96,7 @@ describe('<WishlistButton />', () => {
     render(<WishlistButton id="1" hasText />, { wishlistProviderProps })
 
     act(() => {
-      userEvent.click(screen.getByText(/remove from wishlist/i))
+      userEvent.click(screen.getByText(/remover dos favoritos/i))
     })
 
     waitFor(() => {

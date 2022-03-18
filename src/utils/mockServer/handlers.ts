@@ -27,7 +27,7 @@ export const handlers = [
               {
                 messages: [
                   {
-                    message: 'This email does not exist'
+                    message: 'Esse e-mail não existe'
                   }
                 ]
               }
@@ -60,7 +60,7 @@ export const handlers = [
               {
                 messages: [
                   {
-                    message: 'Incorrect code provided.'
+                    message: 'Código informado está incorreto.'
                   }
                 ]
               }

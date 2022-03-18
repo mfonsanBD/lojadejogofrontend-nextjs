@@ -27,7 +27,7 @@ export type CartContextData = {
 export const CartContextDefaultValues = {
   items: [],
   quantity: 0,
-  total: '$0.00',
+  total: 'R$0,00',
   isInCart: () => false,
   addToCart: () => null,
   removeFromCart: () => null,
@@ -55,7 +55,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
   }, [])
 
   const { data, loading } = useQueryGames({
-    skip: !cartItems.length,
+    skip: !cartItems?.length,
     variables: {
       where: {
         id: cartItems

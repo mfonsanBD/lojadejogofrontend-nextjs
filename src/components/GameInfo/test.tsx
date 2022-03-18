@@ -1,6 +1,5 @@
 import 'session.mock'
 import { render, screen } from 'utils/test-utils'
-
 import GameInfo from '.'
 
 const props = {
@@ -19,7 +18,7 @@ describe('<GameInfo />', () => {
     ).toBeInTheDocument()
 
     expect(screen.getByText(/my game description/i)).toBeInTheDocument()
-    expect(screen.getByText(/\$120\.00/)).toBeInTheDocument()
+    expect(screen.getByText(/R\$120,00/)).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
   })
@@ -28,10 +27,10 @@ describe('<GameInfo />', () => {
     render(<GameInfo {...props} />)
 
     expect(
-      screen.getByRole('button', { name: /add to cart/i })
+      screen.getByRole('button', { name: /adicionar ao carrinho/i })
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('button', { name: /add to wishlist/i })
+      screen.getByRole('button', { name: /adicionar aos favoritos/i })
     ).toBeInTheDocument()
   })
 })

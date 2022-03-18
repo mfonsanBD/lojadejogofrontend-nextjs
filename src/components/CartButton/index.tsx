@@ -1,8 +1,8 @@
-import Button, { ButtonProps } from 'components/Button'
 import {
   AddShoppingCart,
   RemoveShoppingCart
 } from '@styled-icons/material-outlined'
+import Button, { ButtonProps } from 'components/Button'
 import { useCart } from 'hooks/use-cart'
 
 type CartButtonProps = {
@@ -16,7 +16,9 @@ const CartButton = ({
   hasText = false
 }: CartButtonProps) => {
   const { isInCart, addToCart, removeFromCart } = useCart()
-  const buttonText = isInCart(id) ? 'Remove from Cart' : 'Add to Cart'
+  const buttonText = isInCart(id)
+    ? 'Remover do Carrinho'
+    : 'Adicionar ao Carrinho'
 
   return (
     <Button

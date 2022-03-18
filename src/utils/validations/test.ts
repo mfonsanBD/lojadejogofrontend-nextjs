@@ -1,8 +1,8 @@
 import {
-  signInValidate,
-  signUpValidate,
   forgotValidate,
-  resetValidate
+  resetValidate,
+  signInValidate,
+  signUpValidate
 } from '.'
 
 describe('validation', () => {
@@ -74,7 +74,7 @@ describe('validation', () => {
       }
 
       expect(signUpValidate(values).confirm_password).toMatchInlineSnapshot(
-        `"confirm password does not match with password"`
+        `"A confirmação de senha não bate com a senha informada"`
       )
     })
   })
@@ -130,7 +130,7 @@ describe('validation', () => {
       }
 
       expect(resetValidate(values).confirm_password).toMatchInlineSnapshot(
-        `"confirm password does not match with password"`
+        `"A confirmação de senha não bate com a senha informada"`
       )
     })
   })

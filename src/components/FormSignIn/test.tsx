@@ -1,5 +1,4 @@
 import { render, screen } from 'utils/test-utils'
-
 import FormSignIn from '.'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -18,9 +17,9 @@ describe('<FormSignIn />', () => {
     const { container } = render(<FormSignIn />)
 
     expect(screen.getByPlaceholderText(/e-mail/i)).toBeInTheDocument()
-    expect(screen.getByPlaceholderText(/password/i)).toBeInTheDocument()
+    expect(screen.getByPlaceholderText(/senha/i)).toBeInTheDocument()
     expect(
-      screen.getByRole('button', { name: /Sign In Now/i })
+      screen.getByRole('button', { name: /entrar agora/i })
     ).toBeInTheDocument()
 
     expect(container.parentElement).toMatchSnapshot()
@@ -29,13 +28,15 @@ describe('<FormSignIn />', () => {
   it('should render the forgot password link', () => {
     render(<FormSignIn />)
     expect(
-      screen.getByRole('link', { name: /Forgot your password\?/i })
+      screen.getByRole('link', { name: /esqueci minha senha/i })
     ).toBeInTheDocument()
   })
 
   it('should render the text and link to sign up', () => {
     render(<FormSignIn />)
-    expect(screen.getByText(/Dont have an account\?/i)).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /Sign Up/i })).toBeInTheDocument()
+    expect(screen.getByText(/não tem uma conta\?/i)).toBeInTheDocument()
+    expect(
+      screen.getByRole('link', { name: /cadastre-se/i })
+    ).toBeInTheDocument()
   })
 })

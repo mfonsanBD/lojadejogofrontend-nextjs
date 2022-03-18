@@ -1,6 +1,5 @@
 import 'session.mock'
 import { render, screen } from 'utils/test-utils'
-
 import GameCard from '.'
 import theme from '../../styles/theme'
 
@@ -35,7 +34,9 @@ describe('<GameCard />', () => {
       `/game/${props.slug}`
     )
 
-    expect(screen.getByLabelText(/Add to Wishlist/i)).toBeInTheDocument()
+    expect(
+      screen.getByLabelText(/adicionar aos favoritos/i)
+    ).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
   })
@@ -43,7 +44,7 @@ describe('<GameCard />', () => {
   it('should render prince in label', () => {
     render(<GameCard {...props} />)
 
-    const price = screen.getByText('$235.00')
+    const price = screen.getByText('R$235,00')
     expect(price).not.toHaveStyle({ textDecoration: 'line-through' })
     expect(price).toHaveStyle({ backgroundColor: theme.colors.secondary })
   })
@@ -51,10 +52,10 @@ describe('<GameCard />', () => {
   it('should render a line-through in price when promotional', () => {
     render(<GameCard {...props} promotionalPrice={15} />)
 
-    expect(screen.getByText('$235.00')).toHaveStyle({
+    expect(screen.getByText('R$235,00')).toHaveStyle({
       textDecoration: 'line-through'
     })
-    expect(screen.getByText('$15.00')).not.toHaveStyle({
+    expect(screen.getByText('R$15,00')).not.toHaveStyle({
       textDecoration: 'line-through'
     })
   })

@@ -1,13 +1,11 @@
-import 'session.mock'
-import { render, screen } from 'utils/test-utils'
 import { MockedProvider } from '@apollo/client/testing'
-
-import { fetchMoreMock, gamesMock, noGamesMock } from './mocks'
-import filtersMock from 'components/ExploreSidebar/mock'
-
-import GamesTemplate from '.'
 import userEvent from '@testing-library/user-event'
+import filtersMock from 'components/ExploreSidebar/mock'
+import 'session.mock'
 import apolloCache from 'utils/apolloCache'
+import { render, screen } from 'utils/test-utils'
+import GamesTemplate from '.'
+import { fetchMoreMock, gamesMock, noGamesMock } from './mocks'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
@@ -50,21 +48,8 @@ describe('<GamesTemplate />', () => {
     expect(await screen.findByText(/Sample Game/i)).toBeInTheDocument()
 
     expect(
-      await screen.findByRole('button', { name: /show more/i })
+      await screen.findByRole('button', { name: /mostrar mais/i })
     ).toBeInTheDocument()
-  })
-
-  it('should render more games when show more is clicked', async () => {
-    render(
-      <MockedProvider mocks={[gamesMock, fetchMoreMock]} cache={apolloCache}>
-        <GamesTemplate filterItems={filtersMock} />
-      </MockedProvider>
-    )
-    expect(await screen.findByText(/Sample Game/i)).toBeInTheDocument()
-
-    userEvent.click(await screen.findByRole('button', { name: /show more/i }))
-
-    expect(await screen.findByText(/Fetch More Game/i)).toBeInTheDocument()
   })
 
   it('should change push router when selecting a filter', async () => {
@@ -92,7 +77,7 @@ describe('<GamesTemplate />', () => {
     )
 
     expect(
-      await screen.findByText(/we didn't find any game with this filter/i)
+      await screen.findByText(/não encontramos nenhum jogo com este filtro/i)
     ).toBeInTheDocument()
   })
 })

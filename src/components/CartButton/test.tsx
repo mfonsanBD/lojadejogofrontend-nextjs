@@ -1,7 +1,7 @@
-import CartButton from '.'
+import userEvent from '@testing-library/user-event'
 import { CartContextDefaultValues } from 'hooks/use-cart'
 import { render, screen } from 'utils/test-utils'
-import userEvent from '@testing-library/user-event'
+import CartButton from '.'
 
 describe('<CartButton />', () => {
   it('should render button to add and call the method if clicked', () => {
@@ -13,7 +13,7 @@ describe('<CartButton />', () => {
 
     render(<CartButton id="1" />, { cartProviderProps })
 
-    const button = screen.getByLabelText(/add to cart/i)
+    const button = screen.getByLabelText(/adicionar ao carrinho/i)
     expect(button).toBeInTheDocument()
 
     userEvent.click(button)
@@ -29,7 +29,7 @@ describe('<CartButton />', () => {
 
     render(<CartButton id="1" />, { cartProviderProps })
 
-    const button = screen.getByLabelText(/remove from cart/i)
+    const button = screen.getByLabelText(/remover do carrinho/i)
     expect(button).toBeInTheDocument()
 
     userEvent.click(button)

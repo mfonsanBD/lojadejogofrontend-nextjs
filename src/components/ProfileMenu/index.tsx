@@ -1,12 +1,11 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { signOut } from 'next-auth/client'
 import {
   AccountCircle,
   ExitToApp,
   FormatListBulleted
 } from '@styled-icons/material-outlined'
-
+import { signOut } from 'next-auth/client'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import * as S from './styles'
 
 export type ProfileMenuProps = {
@@ -18,15 +17,18 @@ const ProfileMenu = ({ activeLink }: ProfileMenuProps) => {
   return (
     <S.Nav>
       <Link href="/profile/me" passHref>
-        <S.Link title="My profile" isActive={activeLink === '/profile/me'}>
+        <S.Link title="Meu Perfil" isActive={activeLink === '/profile/me'}>
           <AccountCircle size={24} />
-          <span>My Profile</span>
+          <span>Meu Perfil</span>
         </S.Link>
       </Link>
       <Link href="/profile/orders" passHref>
-        <S.Link title="My orders" isActive={activeLink === '/profile/orders'}>
+        <S.Link
+          title="Meus Pedidos"
+          isActive={activeLink === '/profile/orders'}
+        >
           <FormatListBulleted size={24} />
-          <span>My Orders</span>
+          <span>Meus Pedidos</span>
         </S.Link>
       </Link>
       <S.Link
@@ -35,10 +37,10 @@ const ProfileMenu = ({ activeLink }: ProfileMenuProps) => {
           const data = await signOut({ redirect: false, callbackUrl: '/' })
           push(data.url)
         }}
-        title="sign out"
+        title="Sair"
       >
         <ExitToApp size={24} />
-        <span>Sign Out</span>
+        <span>Sair</span>
       </S.Link>
     </S.Nav>
   )

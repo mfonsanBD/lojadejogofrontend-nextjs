@@ -1,6 +1,5 @@
-import { render, screen } from 'utils/test-utils'
 import theme from 'styles/theme'
-
+import { render, screen } from 'utils/test-utils'
 import ProfileMenu from '.'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -15,12 +14,12 @@ describe('<ProfileMenu />', () => {
     const { container } = render(<ProfileMenu />)
 
     expect(
-      screen.getByRole('link', { name: /my profile/i })
+      screen.getByRole('link', { name: /meu perfil/i })
     ).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /my orders/i })).toBeInTheDocument()
     expect(
-      screen.getByRole('button', { name: /sign out/i })
+      screen.getByRole('link', { name: /meus pedidos/i })
     ).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /sair/i })).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
   })
@@ -28,7 +27,7 @@ describe('<ProfileMenu />', () => {
   it('should render the menu with an active link defined', () => {
     render(<ProfileMenu activeLink="/profile/me" />)
 
-    expect(screen.getByRole('link', { name: /my profile/i })).toHaveStyle({
+    expect(screen.getByRole('link', { name: /meu perfil/i })).toHaveStyle({
       background: theme.colors.primary,
       color: theme.colors.white
     })

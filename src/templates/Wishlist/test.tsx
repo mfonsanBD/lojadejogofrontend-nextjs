@@ -1,11 +1,9 @@
-import 'session.mock'
-import { render, screen } from 'utils/test-utils'
-
-import Wishlist from '.'
-
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 import { WishlistContextDefaultValues } from 'hooks/use-wishlist'
+import 'session.mock'
+import { render, screen } from 'utils/test-utils'
+import Wishlist from '.'
 
 const props = {
   recommendedTitle: 'You may like these games',
@@ -36,7 +34,7 @@ describe('<Wishlist />', () => {
     render(<Wishlist {...props} />, { wishlistProviderProps })
 
     expect(
-      screen.getByRole('heading', { name: /wishlist/i })
+      screen.getByRole('heading', { name: /favoritos/i })
     ).toBeInTheDocument()
 
     expect(screen.getByText(/population zero/i)).toBeInTheDocument()
@@ -60,7 +58,9 @@ describe('<Wishlist />', () => {
     expect(screen.queryByText(/population zero/i)).not.toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /your wishlist is empty/i })
+      screen.getByRole('heading', {
+        name: /Sua lista de favoritos está vazia/i
+      })
     ).toBeInTheDocument()
   })
 })

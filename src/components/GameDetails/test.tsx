@@ -1,5 +1,4 @@
 import { render, screen } from 'utils/test-utils'
-
 import GameDetails, { GameDetailsProps } from '.'
 
 const props: GameDetailsProps = {
@@ -16,23 +15,25 @@ describe('<GameDetails />', () => {
     render(<GameDetails {...props} />)
 
     expect(
-      screen.getByRole('heading', { name: /developer/i })
+      screen.getByRole('heading', { name: /desenvolvedoras/i })
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /release date/i })
+      screen.getByRole('heading', { name: /data de lançamento/i })
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /platforms/i })
+      screen.getByRole('heading', { name: /plataformas/i })
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /publishers/i })
+      screen.getByRole('heading', { name: /editora/i })
     ).toBeInTheDocument()
 
-    expect(screen.getByRole('heading', { name: /rating/i })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: /genres/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /classificação/i })
+    ).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /gênero/i })).toBeInTheDocument()
   })
 
   it('should render platform icons', () => {
@@ -46,7 +47,7 @@ describe('<GameDetails />', () => {
   it('should render release date formated', () => {
     render(<GameDetails {...props} />)
 
-    expect(screen.getByText('Dec 16, 2021')).toBeInTheDocument()
+    expect(screen.getByText('16 de dezembro de 2021')).toBeInTheDocument()
   })
 
   it('should render developer', () => {

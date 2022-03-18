@@ -2,7 +2,6 @@ import Button from 'components/Button'
 import Heading from 'components/Heading'
 import TextField from 'components/TextField'
 import Link from 'next/link'
-
 import * as S from './styles'
 
 export type FormProfileProps = {
@@ -13,16 +12,16 @@ export type FormProfileProps = {
 const FormProfile = ({ email, username }: FormProfileProps) => (
   <>
     <Heading lineBottom size="small" color="black">
-      My profile
+      Meu Perfil
     </Heading>
 
     <S.Form>
       <TextField
         name="username"
-        placeholder="Username"
+        placeholder="Usuário"
         type="text"
         iconPosition="right"
-        label="Username"
+        label="Usuário"
         initialValue={username}
       />
       <TextField
@@ -38,10 +37,10 @@ const FormProfile = ({ email, username }: FormProfileProps) => (
       <S.ButtonsContainer>
         <Link href={`/forgot-password?email=${email}`} passHref>
           <Button size="medium" minimal as="a">
-            Reset Password
+            Resetar Senha
           </Button>
         </Link>
-        <Button size="medium">Save</Button>
+        <Button size="medium">Salvar</Button>
       </S.ButtonsContainer>
     </S.Form>
   </>

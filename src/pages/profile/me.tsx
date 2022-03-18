@@ -13,7 +13,7 @@ import protectedRoutes from 'utils/protected-routes'
 export default function Me(props: FormProfileProps) {
   return (
     <Profile>
-      <NextSeo title="My Profile - Won Games" />
+      <NextSeo title="Meu Perfil - Won Games" />
       <FormProfile {...props} />
     </Profile>
   )

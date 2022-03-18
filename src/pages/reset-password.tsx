@@ -4,8 +4,8 @@ import Auth from 'templates/Auth'
 
 export default function ResetPassword() {
   return (
-    <Auth title="Reset Your Password">
-      <NextSeo title="Reset Password - Won Games" />
+    <Auth title="Resetar sua Senha">
+      <NextSeo title="Resetar Senha - Won Games" />
       <FormResetPassword />
     </Auth>
   )

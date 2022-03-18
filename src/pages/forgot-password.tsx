@@ -4,8 +4,8 @@ import Auth from 'templates/Auth'
 
 export default function ForgotPassword() {
   return (
-    <Auth title="Request New Password">
-      <NextSeo title="Forgot Password - Won Games" />
+    <Auth title="Pedir Nova Senha">
+      <NextSeo title="Esqueci minha senha - Won Games" />
       <FormForgotPassword />
     </Auth>
   )

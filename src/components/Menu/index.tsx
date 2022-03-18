@@ -40,10 +40,10 @@ const Menu = ({ username, loading }: MenuProps) => {
       <MediaMatch greaterThan="medium">
         <S.MenuNav>
           <Link href="/" passHref>
-            <S.MenuLink>Home</S.MenuLink>
+            <S.MenuLink>Inicio</S.MenuLink>
           </Link>
           <Link href="/games" passHref>
-            <S.MenuLink>Explore</S.MenuLink>
+            <S.MenuLink>Jogos</S.MenuLink>
           </Link>
         </S.MenuNav>
       </MediaMatch>
@@ -70,7 +70,7 @@ const Menu = ({ username, loading }: MenuProps) => {
             <MediaMatch greaterThan="medium">
               {!username ? (
                 <Link href="/sign-in" passHref>
-                  <Button as="a">Sign In</Button>
+                  <Button as="a">Entrar</Button>
                 </Link>
               ) : (
                 <UserDropdown username={username} />
@@ -86,19 +86,19 @@ const Menu = ({ username, loading }: MenuProps) => {
 
             <S.MenuNav>
               <Link href="/" passHref>
-                <S.MenuLink>Home</S.MenuLink>
+                <S.MenuLink>Inicio</S.MenuLink>
               </Link>
               <Link href="/games" passHref>
-                <S.MenuLink>Explore</S.MenuLink>
+                <S.MenuLink>Jogos</S.MenuLink>
               </Link>
 
               {!!username && (
                 <>
                   <Link href="/profile/me" passHref>
-                    <S.MenuLink>My Account</S.MenuLink>
+                    <S.MenuLink>Minha Conta</S.MenuLink>
                   </Link>
                   <Link href="/wishlist" passHref>
-                    <S.MenuLink>Wishlist</S.MenuLink>
+                    <S.MenuLink>Favoritos</S.MenuLink>
                   </Link>
 
                   <S.MenuLink
@@ -112,7 +112,7 @@ const Menu = ({ username, loading }: MenuProps) => {
                     }}
                     title="sign out"
                   >
-                    Sign Out
+                    Sair
                   </S.MenuLink>
                 </>
               )}
@@ -122,13 +122,13 @@ const Menu = ({ username, loading }: MenuProps) => {
               <S.RegisterBox>
                 <Link href="/sign-in" passHref>
                   <Button fullWidth size="large" as="a">
-                    Sign In
+                    Entrar
                   </Button>
                 </Link>
-                <span>or</span>
+                <span>ou</span>
                 <Link href="/sign-up" passHref>
                   <S.CreateAccount title="Crie sua conta">
-                    Sign Up
+                    Cadastre-se
                   </S.CreateAccount>
                 </Link>
               </S.RegisterBox>

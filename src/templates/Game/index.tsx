@@ -68,7 +68,7 @@ const Game = ({
       </S.SectionGallery>
 
       <S.SectionDescription>
-        <TextContent title="Description" content={description} />
+        <TextContent title="Descrição" content={description} />
       </S.SectionDescription>
 
       <S.SectionGameDetails>

@@ -1,12 +1,10 @@
-import { useState } from 'react'
-import { useRouter } from 'next/router'
-import { Lock, ErrorOutline } from '@styled-icons/material-outlined'
-
+import { ErrorOutline, Lock } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
+import { FormError, FormLoading, FormWrapper } from 'components/Form'
 import TextField from 'components/TextField'
-import { FormWrapper, FormLoading, FormError } from 'components/Form'
-
 import { signIn } from 'next-auth/client'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 import { FieldErrors, resetValidate } from 'utils/validations'
 
 const FormResetPassword = () => {
@@ -73,7 +71,7 @@ const FormResetPassword = () => {
       <form onSubmit={handleSubmit}>
         <TextField
           name="password"
-          placeholder="Password"
+          placeholder="Senha"
           type="password"
           error={fieldError?.password}
           onInputChange={(v) => handleInput('password', v!)}
@@ -81,7 +79,7 @@ const FormResetPassword = () => {
         />
         <TextField
           name="confirm_password"
-          placeholder="Confirm Password"
+          placeholder="Confirmar Senha"
           type="password"
           error={fieldError?.confirm_password}
           onInputChange={(v) => handleInput('confirm_password', v!)}
@@ -89,7 +87,7 @@ const FormResetPassword = () => {
         />
 
         <Button type="submit" size="large" fullWidth disabled={loading}>
-          {loading ? <FormLoading /> : <span>Reset Password</span>}
+          {loading ? <FormLoading /> : <span>Resetar Senha</span>}
         </Button>
       </form>
     </FormWrapper>

@@ -1,5 +1,4 @@
 import { render, screen } from 'utils/test-utils'
-
 import Auth from '.'
 
 describe('<Auth />', () => {
@@ -16,14 +15,14 @@ describe('<Auth />', () => {
     // verifica se tem o heading principal do banner
     expect(
       screen.getByRole('heading', {
-        name: /All your favorite games in one place/i
+        name: /Todos os seus jogos favoritos em um só lugar/i
       })
     ).toBeInTheDocument()
 
     // verifica se tem o subtitle
     expect(
       screen.getByRole('heading', {
-        name: /won is the best and most complete gaming platform/i
+        name: /won é a melhor e mais completa plataforma de jogos./i
       })
     ).toBeInTheDocument()
 

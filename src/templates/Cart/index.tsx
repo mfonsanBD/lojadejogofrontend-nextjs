@@ -1,19 +1,17 @@
-import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
-import Base from 'templates/Base'
-
-import Heading from 'components/Heading'
-import Showcase from 'components/Showcase'
+import { loadStripe } from '@stripe/stripe-js'
+import { Info } from '@styled-icons/material-outlined/Info'
 import CartList, { CartListProps } from 'components/CartList'
-import { Divider } from 'components/Divider'
 import { Container } from 'components/Container'
+import { Divider } from 'components/Divider'
 import { GameCardProps } from 'components/GameCard'
+import Heading from 'components/Heading'
 import { HighlightProps } from 'components/Highlight'
 import PaymentForm from 'components/PaymentForm'
+import Showcase from 'components/Showcase'
 import { Session } from 'next-auth'
-
-import { Info } from '@styled-icons/material-outlined/Info'
-
+import { NextSeo } from 'next-seo'
+import Base from 'templates/Base'
 import * as S from './styles'
 
 export type CartTemplateProps = {
@@ -33,9 +31,10 @@ const Cart = ({
 }: CartTemplateProps) => {
   return (
     <Base>
+      <NextSeo title="Meu Carrinho - Won Games" />
       <Container>
         <Heading lineLeft lineColor="secondary">
-          My Cart
+          Meu Carrinho
         </Heading>
 
         <S.Content>
@@ -47,12 +46,12 @@ const Cart = ({
         </S.Content>
 
         <S.Text>
-          <Info size={18} /> Your purchase is protected by a secure connection
-          from the WON platform. By purchasing from our store you agree and
-          agree to our <a href="#">terms of use.</a> After making the purchase
-          you are entitled to a refund within a maximum of 30 days, without any
-          additional cost, as long as the download of the purchased game has not
-          occurred after your purchase.
+          <Info size={18} /> Sua compra está protegida por uma conexão segura da
+          plataforma WON. Ao comprar em nossa loja você concorda com os nossos{' '}
+          <a href="#">termos de uso.</a> Depois de fazer a compra tem direito a
+          um reembolso no prazo máximo de 30 dias, sem qualquer custo adicional,
+          desde que o download do jogo adquirido não esteja disponível após sua
+          compra.
         </S.Text>
 
         <Divider />
